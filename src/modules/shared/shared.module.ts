@@ -35,7 +35,6 @@ import {
   DropDownToggleDirective
 } from "./directives/drop-down.directive";
 import { DialogErrorComponent } from "./components/dialog-error/dialog-error.component";
-import { LinkifyPipe } from "./pipes/linkfy";
 import { LoadingWrapperComponent } from "./components/loading-wrapper/loading-wrapper.component";
 import { PicturePipe } from "./pipes/picture.pipe";
 import { AngularSvgIconModule } from "angular-svg-icon";
@@ -49,7 +48,7 @@ import { ButtonIconComponent } from "./components/button-icon/button-icon.compon
 import { HasAccessDirective } from "./directives/has-access.directive";
 
 // pipes
-const pipes = [LinkifyPipe, PicturePipe, ReadeableTimePipe];
+const pipes = [PicturePipe, ReadeableTimePipe];
 
 // entries
 const entries = [DialogErrorComponent];
