@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import {ModuleWithProviders, NgModule} from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
@@ -46,6 +46,8 @@ import { DialogWrapperComponent } from "./components/dialog-wrapper/dialog-wrapp
 import { ButtonComponent } from "./components/button/button.component";
 import { ButtonIconComponent } from "./components/button-icon/button-icon.component";
 import { HasAccessDirective } from "./directives/has-access.directive";
+import {NotificationComponent} from "./components/notification/notification.component";
+import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 
 // pipes
 const pipes = [PicturePipe, ReadeableTimePipe];
@@ -73,7 +75,9 @@ const components = [
   MonogramComponent,
   MonogramComponent,
   ButtonComponent,
-  ButtonIconComponent
+  ButtonIconComponent,
+  NotificationComponent,
+  PageNotFoundComponent
 ];
 
 // material components
