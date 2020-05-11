@@ -1,0 +1,39 @@
+@mixin font-body-bold {
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+@mixin font-body-bold-2 {
+  @include font-body-bold;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+@mixin font-small {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 7px;
+  line-height: 9px;
+}
+
+@mixin font-body {
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+@mixin font-card-header {
+  font-size: 22px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}

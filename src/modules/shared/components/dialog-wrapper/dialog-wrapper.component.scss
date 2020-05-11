@@ -1,0 +1,96 @@
+@import "00_base/base";
+
+:host {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dialog {
+  position: relative;
+  padding: 40px 50px 30px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: block;
+  border-radius: 20px;
+  background-color: $dialog-background-color;
+  box-shadow: $box-shadow;
+  box-sizing: border-box;
+  width: 100%;
+  transition: height 250ms, width 250ms;
+
+  @include respond(mobile) {
+    padding: 40px 30px 30px;
+  }
+
+  &__content {
+    max-height: calc(90vh - 10rem);
+  }
+
+  ::ng-deep perfect-scrollbar {
+    .ps-content,
+    .ps {
+      max-height: calc(90vh - 10rem);
+    }
+
+    .ps__rail-y {
+      opacity: 0 !important;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    h3 {
+      font-size: 20px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: $dialog-title-color;
+      font-weight: 500;
+    }
+
+    &__close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 10;
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    padding-top: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+
+    app-button {
+      display: block;
+      margin: 0 0.5rem;
+    }
+
+    &--center {
+      justify-content: center;
+    }
+
+    &--left {
+      justify-content: left;
+    }
+
+    &--right {
+      justify-content: right;
+    }
+  }
+
+  ::ng-deep perfect-scrollbar {
+    .ps-content,
+    .ps {
+      max-height: calc(90vh - 10rem);
+    }
+  }
+}

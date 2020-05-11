@@ -1,0 +1,19 @@
+@import "00_base/base";
+@import "01_components/components";
+@import "02_layouts/layouts";
+
+html {
+  height: 100%;
+
+  body {
+    background-color: #f1f2f4;
+    margin: 0;
+    padding: 0;
+    font-family: $primary-font;
+    height: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}

@@ -1,0 +1,10 @@
+<div
+  class="monogram"
+  [style.height.rem]="size"
+  [style.width.rem]="size"
+  [style.backgroundColor]="color"
+  [class.inactive]="inactiveMode"
+>
+  <img *ngIf="picture" [src]="picture" alt="User image" />
+  <span *ngIf="!picture" [style.fontSize]="fontSize">{{ monogram }}</span>
+</div>

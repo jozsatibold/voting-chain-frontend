@@ -1,0 +1,22 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 8rem;
+
+  .p404 {
+    font-size: 144px;
+    opacity: 0.2;
+  }
+
+  .oops {
+    font-size: 48px;
+    margin-top: -5rem;
+  }
+
+  .description {
+    text-align: center;
+  }
+}

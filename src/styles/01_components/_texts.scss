@@ -1,0 +1,44 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-family !important;
+}
+
+h4 {
+  font-weight: 400;
+}
+
+.placeholder {
+  font-size: 1.1rem;
+  font-family: $font-family !important;
+  font-weight: 400;
+  color: #a2a3a4;
+  text-align: center;
+  margin: 0;
+}
+
+textarea {
+  &::placeholder,
+  &::-webkit-input-placeholder,
+  &:-ms-input-placeholder {
+    width: 75px;
+    height: 10px;
+    font-family: $font-family !important;
+    font-size: 10px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-align: left;
+    color: #828695;
+  }
+}
+
+button:focus,
+textarea:focus,
+input:focus {
+  outline: none;
+}

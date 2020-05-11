@@ -1,0 +1,22 @@
+/* MEDIA QUERY MANAGER
+$breakpoint arguement choices:
+  - mobile
+  - desktop
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: $mobile-width) {
+      @content;
+    } // <835px
+  }
+  @if $breakpoint == mobile-650 {
+    @media only screen and (max-width: 650px) {
+      @content;
+    } // <650px
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: $mobile-width) {
+      @content;
+    } // >835px
+  }
+}
