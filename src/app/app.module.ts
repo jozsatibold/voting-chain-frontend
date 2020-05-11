@@ -15,7 +15,6 @@ import { SharedModule } from "../modules/shared/shared.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TokenInterceptor } from "./interceptors/token.interceptor";
 import { RouteInterceptor } from "./interceptors/route.interceptor";
-import { NgxLinkifyjsModule } from "ngx-linkifyjs";
 import { GlobalModule } from "../modules/global";
 import { MainComponent } from "./containers/main/main.component";
 import { reducers } from "./+state";
@@ -62,7 +61,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgxLinkifyjsModule.forRoot(),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([])

@@ -121,9 +121,9 @@ const materialComponents = [
   entryComponents: [...entries]
 })
 export class SharedModule {
-  static forRoot() {
+  static forRoot(): ModuleWithProviders<SharedModule> {
     return {
-      ngModule: SharedModule
+        ngModule: SharedModule
     };
-  }
+}
 }

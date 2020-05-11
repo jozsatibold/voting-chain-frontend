@@ -127,17 +127,17 @@ export class CloseDropdownDirective {
 })
 export class DropDownDirective implements OnDestroy {
   zoneSubscription: any;
-  @ContentChild(DropDownContentDirective, { static: false })
+  @ContentChild(DropDownContentDirective)
   content: DropDownContentDirective;
-  @ContentChild(DropdownAnimatedContentDirective, { static: false })
+  @ContentChild(DropdownAnimatedContentDirective)
   animatedContent: DropdownAnimatedContentDirective;
-  @ContentChild(DropDownToggleDirective, { static: false })
+  @ContentChild(DropDownToggleDirective)
   toggle: DropDownToggleDirective;
-  @ContentChild(ActiveDropDownElementDirective, { static: false })
+  @ContentChild(ActiveDropDownElementDirective)
   element: ActiveDropDownElementDirective;
-  @ContentChild(CloseDropdownDirective, { static: false })
+  @ContentChild(CloseDropdownDirective)
   closeButton: CloseDropdownDirective;
-  @ContentChild(ClosingActiveDropDownElementDirective, { static: false })
+  @ContentChild(ClosingActiveDropDownElementDirective)
   closingElement: ClosingActiveDropDownElementDirective;
 
   @HostBinding("class.open") activeClass = false;
