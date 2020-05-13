@@ -1,46 +1,23 @@
-// MAIN COLORS
-$main-orange: #e27d60;
-$main-blue-green: #85cdca;
-$main-light-orange: #e8a87c;
-$main-pink: #e6828c;
-$main-green: #41b3a3;
-$main-black: #000000;
-$main-bg-green: #7cc1ac;
-$main-bg-red: #ff5252;
-
-//Button colors
-$primary-color-hover: rgba(0, 150, 136, 0.85);
-$primary-color-active: rgba(0, 150, 136, 0.85);
-$primary-color-disabled: rgba(#999999, 0.3);
-$secondary-color: #e5e5e5;
-$secondary-color-hover: #d0d0d0;
-$secondary-color-active: #aaaaaa;
-$secondary-color-disabled: #ababab;
-
 //Background colors
-$background-color: #f5f5f5;
-$background-secondary-color: #ffffff;
-$background-secondary-hover-color: #f2f2f2;
-$background-secondary-active-color: #d9d9d9;
-$background-secondary-disabled-color: transparent;
-$background-not-active-color: #e9e9e9;
-$background-authorization-color: #eaebed;
+$background-color: #33474f;
+$background-color-hover: #2c4048;
+$background-secondary-color: #506f7a;
+$background-secondary-hover-color: #496772;
+$background-color-light: $background-secondary-color;
+$background-color-light-hover: $background-secondary-hover-color;
+$background-secondary-light-color: #ffffff;
+$background-secondary-light-hover-color: #f1f1f1;
 
-//Text colors
-$h1-color: #333333;
-$h2-color: #333333;
-$h3-color: #009688;
-$h4-color: #009688;
-$h5-color: #333333;
-$text-color: #505050;
-$text-color-focused: #009688;
-$text-color-muted: #969699;
-$text-small-color: #969699;
-$general-inline-error-color: #e4002b;
-$notification-text-primary-color: #ffffff;
+$text-color: $background-secondary-light-color;
+$text-color-active: $background-secondary-light-hover-color;
+$primary-color: $background-color;
+$primary-color-hover: $background-color-hover;
+$secondary-color: $background-secondary-color;
+$secondary-color-hover: $background-secondary-hover-color;
+$scroll-color:#3e535b;
+$scroll-color-hover:#3c4f57;
 
 // Notification colors
-$error-color: #e7173f;
 $danger-color: #d0021b;
 $danger-color-hover: #c20018;
 $success-color: #00b416;
@@ -51,40 +28,3 @@ $info-color: #02a1e2;
 $info-color-hover: #0292ce;
 $notification-color: #ffffff;
 $notification-color-hover: #eaeaea;
-
-//Icon colors
-$icon-grey-color: rgba(#009688, 0.75);
-$icon-green-color: rgba(#009688, 0.75);
-$icon-white-color: #ffffff;
-
-//Navbar colors
-$navbar-background-color: #ffffff;
-//$navbar-background-color: none;
-$navbar-hover-background-color: #f5f5f5;
-$toolbar-background-color: #333333;
-
-//Border colors
-$border-top-color: #f3f3f2;
-
-//FAB colors
-$fab-bg-color: #41b3a3;
-$fab-text-color: #ffffff;
-
-//Redesign colors:
-$title-color: #222222;
-$tab-default-color: #444444;
-$primary-color: #000000;
-$button-text-color: #ffffff;
-$accent-button-border-color: #444444;
-$main-menu-background-color: #ffffff;
-$main-menu-active-link-background-color: #f8f9fb;
-$dropdown-icon-color: #d2d2d2;
-$global-room-card-background-color: #1f1f1f;
-$retro-room-card-background-color: #dbdcde;
-
-$user-initials-color: #f8f9fb;
-
-//Dialog
-$dialog-background-color: #ffffff;
-$dialog-title-color: #000;
-$board-color: #dbdcde;

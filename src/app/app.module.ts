@@ -1,6 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -9,7 +8,6 @@ import {
   HttpClient,
   HttpClientModule
 } from "@angular/common/http";
-import { Observable } from "rxjs";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { SharedModule } from "../modules/shared/shared.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -25,25 +23,23 @@ import {
   PERFECT_SCROLLBAR_CONFIG,
   PerfectScrollbarConfigInterface
 } from "ngx-perfect-scrollbar";
+import {translationLoaderFactory} from "../modules/global/loader";
+import {AuthorizationComponent} from "./containers/authorization/authorization.component";
+import {LoginComponent} from "./containers/login/login.component";
+import {RegistrationComponent} from "./containers/registration/registration.component";
+import {HomeComponent} from "./containers/home/home.component";
 
-export class FDMTranslateLoader implements TranslateLoader {
-  constructor(private http: HttpClient) {}
-
-  getTranslation(lang: string): Observable<any> {
-    return this.http.get(`/assets/i18n/lang/${lang}.json`);
-  }
-}
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new FDMTranslateLoader(http);
-}
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
+const containers = [AppComponent, MainComponent, AuthorizationComponent, LoginComponent, RegistrationComponent, HomeComponent];
+
+const components = [];
+
 @NgModule({
-  declarations: [AppComponent, MainComponent],
+  declarations: [...containers, ...components],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -53,7 +49,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: translationLoaderFactory,
         deps: [HttpClient]
       }
     }),

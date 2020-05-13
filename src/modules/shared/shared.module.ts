@@ -25,19 +25,8 @@ import { MatTableModule } from "@angular/material/table";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTooltipModule } from "@angular/material/tooltip";
-import {
-  ActiveDropDownElementDirective,
-  CloseDropdownDirective,
-  ClosingActiveDropDownElementDirective,
-  DropdownAnimatedContentDirective,
-  DropDownContentDirective,
-  DropDownDirective,
-  DropDownToggleDirective
-} from "./directives/drop-down.directive";
-import { DialogErrorComponent } from "./components/dialog-error/dialog-error.component";
 import { LoadingWrapperComponent } from "./components/loading-wrapper/loading-wrapper.component";
 import { PicturePipe } from "./pipes/picture.pipe";
-import { AngularSvgIconModule } from "angular-svg-icon";
 import { MonogramComponent } from "./components/monogram/monogram.component";
 import { ReadeableTimePipe } from "./pipes/readeable-time.pipe";
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
@@ -53,23 +42,13 @@ import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.
 const pipes = [PicturePipe, ReadeableTimePipe];
 
 // entries
-const entries = [DialogErrorComponent];
+const entries = [];
 
 // shared directives over modules
-const Directives = [
-  DropDownDirective,
-  DropDownContentDirective,
-  DropdownAnimatedContentDirective,
-  DropDownToggleDirective,
-  ActiveDropDownElementDirective,
-  ClosingActiveDropDownElementDirective,
-  CloseDropdownDirective,
-  HasAccessDirective
-];
+const Directives = [HasAccessDirective];
 
 // shared components over modules
 const components = [
-  DialogErrorComponent,
   LoadingWrapperComponent,
   DialogWrapperComponent,
   MonogramComponent,
@@ -106,7 +85,6 @@ const materialComponents = [
   MatSidenavModule,
   MatProgressSpinnerModule,
   MatRippleModule,
-  AngularSvgIconModule,
   PerfectScrollbarModule
 ];
 

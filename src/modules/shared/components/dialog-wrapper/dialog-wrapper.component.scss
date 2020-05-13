@@ -13,7 +13,7 @@
   overflow: hidden;
   display: block;
   border-radius: 20px;
-  background-color: $dialog-background-color;
+  background-color: $secondary-color-hover;
   box-shadow: $box-shadow;
   box-sizing: border-box;
   width: 100%;
@@ -39,18 +39,15 @@
   }
 
   &__header {
-    display: flex;
-    flex-direction: row;
+    display: block;
     width: 100%;
 
     h3 {
-      font-size: 20px;
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      color: $dialog-title-color;
-      font-weight: 500;
+      text-align: center;
     }
 
     &__close {
@@ -69,7 +66,7 @@
     display: flex;
     flex-direction: row;
 
-    app-button {
+    vc-button {
       display: block;
       margin: 0 0.5rem;
     }

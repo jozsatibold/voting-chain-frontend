@@ -1,8 +1,15 @@
+// BOX SHADOWS
 $box-shadow--mini: 0 5px 15px 0 rgba(0, 0, 0, 0.11);
 $box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.11);
 
-//Font
-$font-family: "Montserrat", sans-serif;
-$border-radius: 20px;
-
+//RADIUS
+$border-radius: 15px;
 $border-radius-small: 12px;
+
+// PADDINGS
+$padding-big: 2rem;
+$padding-big-mobile: 1.5rem;
+$padding-medium: 1rem;
+$padding-medium-mobile: 0.8rem;
+$padding-small: 0.5rem;
+$padding-small-mobile: 0.4rem;

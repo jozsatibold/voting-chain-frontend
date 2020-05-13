@@ -5,8 +5,6 @@ import {
   ClearGlobalState,
   GlobalActionTypes,
   LoadUser,
-  LoadUserImage,
-  ReloadUser,
   SetLoginStatus
 } from "./global.actions";
 import { map, switchMap } from "rxjs/operators";
@@ -32,13 +30,6 @@ export class GlobalEffects {
         : of(false);
     }),
     map(user => (user ? new LoadUser(user) : new ClearGlobalState()))
-  );
-
-  @Effect()
-  FetchUserImage = this.actions$.pipe(
-    ofType(GlobalActionTypes.LoadUser),
-    switchMap(() => this.generalUserService.getProfileImage()),
-    map(image => new LoadUserImage(image))
   );
 
   @Effect()

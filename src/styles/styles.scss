@@ -6,10 +6,11 @@ html {
   height: 100%;
 
   body {
-    background-color: #f1f2f4;
+    box-sizing: border-box;
+    background-color: $secondary-color;
     margin: 0;
     padding: 0;
-    font-family: $primary-font;
+    font-family: $font-family;
     height: 100%;
     display: block;
     position: fixed;

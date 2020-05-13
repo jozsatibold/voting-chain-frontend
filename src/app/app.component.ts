@@ -11,7 +11,7 @@ import { Component, OnDestroy, HostListener, OnInit } from "@angular/core";
 export class AppComponent implements OnInit, OnDestroy {
   constructor() {}
 
-  @HostListener("window:beforeunload")
+  @HostListener('window:beforeunload')
   beforeunloadHandler() {
     this.ngOnDestroy();
   }

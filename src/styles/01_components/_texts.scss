@@ -1,40 +1,95 @@
-h1,
-h2,
-h3,
-h4,
-h5 {
+body {
   font-family: $font-family !important;
+}
+
+h1, h2, h3, h4, h5, h6, span, div, p, label, body {
+  @include default-font;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  font-weight: $font-bold;
+  @include respond(mobile) {
+    font-size: $h2-font-size-mobile;
+  }
+}
+
+h2 {
+  font-size: $h2-font-size;
+  font-weight: $font-medium;
+  @include respond(mobile) {
+    font-size: $h2-font-size-mobile;
+  }
+}
+
+h3 {
+  font-size: $h3-font-size;
+  font-weight: $font-medium;
+  @include respond(mobile) {
+    font-size: $h3-font-size-mobile;
+  }
 }
 
 h4 {
-  font-weight: 400;
+  font-size: $h4-font-size;
+  font-weight: $font-regular;
+  @include respond(mobile) {
+    font-size: $h4-font-size-mobile;
+  }
+}
+
+h5 {
+  font-size: $h5-font-size;
+  font-weight: $font-regular;
+  @include respond(mobile) {
+    font-size: $h5-font-size-mobile;
+  }
+}
+
+span, div, p, label {
+  font-size: $text-size;
+  font-weight: $font-regular;
+  @include respond(mobile) {
+    font-size: $text-size-mobile;
+  }
 }
 
 .placeholder {
-  font-size: 1.1rem;
+  font-size: $h1-font-size;
   font-family: $font-family !important;
-  font-weight: 400;
-  color: #a2a3a4;
+  font-weight: $font-regular;
+  color: $text-color;
+  opacity: 0.75;
   text-align: center;
   margin: 0;
 }
 
-textarea {
-  &::placeholder,
-  &::-webkit-input-placeholder,
-  &:-ms-input-placeholder {
-    width: 75px;
-    height: 10px;
-    font-family: $font-family !important;
-    font-size: 10px;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: 0.25px;
-    text-align: left;
-    color: #828695;
-  }
+::placeholder,
+::-webkit-input-placeholder,
+:-ms-input-placeholder {
+  width: 75px;
+  height: 10px;
+  font-family: $font-family !important;
+  font-size: $text-size;
+  font-weight: $font-regular;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.25px;
+  text-align: left;
+  color: $text-color-active;
+}
+
+.text-bold {
+  font-weight: $font-bold !important;
+}
+
+.text-medium {
+  font-weight: $font-medium !important;
+}
+
+.text-regular {
+  font-weight: $font-regular !important;
 }
 
 button:focus,

@@ -6,11 +6,7 @@
       'notification__container notification__container--' + notification.status
     "
   >
-    <svg-icon
-      class="notification__container__icon"
-      [src]="'/assets/images/svg/' + notification.status + '.svg'"
-      [applyCss]="true"
-    ></svg-icon>
+    <mat-icon>notification.status</mat-icon>
     <span
       class="notification__container__message"
       [innerHTML]="notification.text | translate"
@@ -20,10 +16,7 @@
       class="notification__container__close svg-icon"
       mat-ripple
     >
-      <svg-icon
-        src="/assets/images/icons/mini-x-1.svg"
-        [applyCss]="true"
-      ></svg-icon>
+      <mat-icon>close</mat-icon>
     </div>
   </div>
 </div>

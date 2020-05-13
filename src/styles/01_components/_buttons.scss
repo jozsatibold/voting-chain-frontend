@@ -4,4 +4,53 @@ button {
   justify-content: space-around;
   align-items: center;
   padding-top: 2rem;
+  @include default-font;
+  font-size: $text-size;
+
+  @include respond(mobile) {
+    font-size: $text-size-mobile;
+  }
+}
+
+.vc-btn {
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: $box-shadow--mini;
+  transition: box-shadow 250ms;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+
+
+  &--primary, &--secondary {
+    padding: 0.5rem 1rem;
+  }
+
+  &--primary {
+    background-color: $text-color;
+    color: $primary-color;
+  }
+
+  &--secondary {
+    border: 2px solid $text-color;
+    background-color: transparent;
+    color: $text-color;
+  }
+
+  &--icon {
+    width: 32px;
+    height: 32px;
+    background: $secondary-color;
+    box-shadow: $box-shadow--mini;
+
+  }
+
+  &--dark {
+    background-color: $primary-color !important;
+    color: $text-color !important;
+  }
 }

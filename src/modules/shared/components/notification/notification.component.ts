@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { BehaviorSubject, interval, Subject } from "rxjs";
-import { filter, takeUntil } from "rxjs/operators";
+import {filter, map, takeUntil} from "rxjs/operators";
 import { NotificationService } from "../../../global/services";
 
 @Component({
@@ -11,6 +11,13 @@ import { NotificationService } from "../../../global/services";
 export class NotificationComponent implements OnDestroy, OnInit {
   destroy$ = new Subject<string>();
   private notificationId = 0;
+  private status = {
+    danger: 'error',
+    warning: 'warning',
+    info: 'info',
+    success: 'check_circle',
+    notification: 'announcement'
+  };
 
   notifications$ = new BehaviorSubject<
     Array<{ text: string; status: string; until: number; index: number }>
@@ -33,6 +40,7 @@ export class NotificationComponent implements OnDestroy, OnInit {
             !!data.delay &&
             +data.delay > 1000
         ),
+        map(data => ({...data, status: status[data.status]})),
         takeUntil(this.destroy$)
       )
       .subscribe(data => {

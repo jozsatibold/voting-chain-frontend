@@ -37,8 +37,8 @@ export class MonogramComponent {
     profileImg?: string;
     monogram?: string;
     avatar?: string;
-    type?: "user" | "guest";
-    role?: "user" | "guest";
+    type?: "user" | "admin";
+    role?: "user" | "admin";
   }) {
     if (data) {
       this.picture = data.picture || data.avatar || data.profileImg || "";
@@ -52,11 +52,11 @@ export class MonogramComponent {
         this.monogram = "--";
       }
       if (
-        ((data.type && data.type === "guest") ||
-          (data.role && data.role === "guest")) &&
-        this.color === "#000000"
+        ((data.type && data.type === "admin") ||
+          (data.role && data.role === "admin")) &&
+        this.color === "#2c4048"
       ) {
-        this.color = "#828282";
+        this.color = "#3e535b";
       }
     } else {
       this.picture = "";

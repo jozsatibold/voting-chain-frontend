@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ReplaySubject } from "rxjs";
+import {NotificationTypes} from "../entities";
 
 @Injectable({
   providedIn: "root"
@@ -7,19 +8,14 @@ import { ReplaySubject } from "rxjs";
 export class NotificationService {
   private notification = new ReplaySubject<{
     text: string;
-    status: string;
+    status: NotificationTypes;
     delay: number;
   }>();
   notification$ = this.notification.asObservable();
 
   notify(
     text: string,
-    status:
-      | "danger"
-      | "warning"
-      | "info"
-      | "success"
-      | "notification" = "success",
+    status: NotificationTypes = "success",
     delay: number = 5000
   ) {
     this.notification.next({ text, status, delay });
@@ -27,7 +23,7 @@ export class NotificationService {
 
   showNotification(
     text: string,
-    type: "danger" | "warning" | "info" | "success" | "notification"
+    type: NotificationTypes
   ) {
     this.notify(text, type);
   }

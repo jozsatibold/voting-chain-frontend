@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 
 @Component({
-  selector: "app-button-icon",
-  templateUrl: "./button-icon.component.html",
-  styleUrls: ["./button-icon.component.scss"],
+  selector: "vc-button-icon",
+  template: `
+    <div class="vc-btn btn--icon" [class.btn--dark]="darkBackground" matRipple>
+      <mat-icon>{{ icon }}</mat-icon>
+    </div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonIconComponent {
-  @Input() svgSrc;
-  @Input() materialIcon;
+  @Input() icon;
   @Input() darkBackground = false;
-  @Input() defaultSize = true;
 }

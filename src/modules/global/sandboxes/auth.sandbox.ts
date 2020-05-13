@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, throwError } from "rxjs";
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { AuthService, ErrorHandlingService, LoadingService } from "../services";
-import { User } from "../entities";
+import { AuthService, ErrorHandlingService } from "../services";
 import { catchError, map, tap } from "rxjs/operators";
 import { UserSandbox } from "./user.sandbox";
 import { Router } from "@angular/router";
@@ -17,19 +16,17 @@ export class AuthSandbox {
   helper = new JwtHelperService();
 
   constructor(
-    private loadingService: LoadingService,
     private errorHandlingService: ErrorHandlingService,
     private userSandbox: UserSandbox,
     private router: Router,
     private authService: AuthService
   ) {}
 
-  login(email: string, password: string): Observable<User> {
+  login(email: string, password: string): Observable<any> {
     return this.authService.login(email, password).pipe(
       map((response: { user: any; token: string; refreshToken }) => {
         this.setToken(response.token);
         this.setRefreshToken((response as any).refreshToken);
-        this.loadingService.stopLoading();
         return response.user;
       }),
       catchError(err => this.errorHandlingService.handleError(err))
@@ -37,19 +34,16 @@ export class AuthSandbox {
   }
 
   logout() {
-    this.loadingService.startLoading();
     return this.authService.logout(localStorage.getItem("refresh-token")).pipe(
       tap(() => {
         this.clearAuthCredentials();
         this.userSandbox.clearUser();
-        this.loadingService.stopLoading();
       }),
       catchError(err => this.errorHandlingService.handleError(err))
     );
   }
 
   loadUser(): Observable<any> {
-    this.loadingService.startLoading();
     return this.authService
       .loadUser()
       .pipe(catchError(err => this.errorHandlingService.handleError(err)));
@@ -87,7 +81,6 @@ export class AuthSandbox {
   clearAuthCredentials() {
     this.removeTokens();
     this.userSandbox.setLoginStatus(false);
-    this.loadingService.stopLoading();
     this.isRefreshingToken = false;
   }
 

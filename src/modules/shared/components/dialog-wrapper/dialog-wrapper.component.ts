@@ -5,9 +5,10 @@ import {
   Input,
   Output
 } from "@angular/core";
+import {ButtonAlign} from "../../../global/entities";
 
 @Component({
-  selector: "app-dialog-wrapper",
+  selector: "vc-dialog-wrapper",
   template: `
     <div class="dialog">
       <div class="dialog__header">
@@ -18,33 +19,30 @@ import {
           >
         </h3>
         <div
-          (click)="closeEvent()"
+          (click)="closeDialog()"
           class="dialog__header__close svg-icon"
           mat-ripple
         >
-          <svg-icon
-            src="/assets/images/icons/mini-x-1.svg"
-            [applyCss]="true"
-          ></svg-icon>
+          <mat-icon>close</mat-icon>
         </div>
       </div>
       <perfect-scrollbar class="dialog__content">
         <ng-content></ng-content>
       </perfect-scrollbar>
       <div [class]="'dialog__footer dialog__footer--' + buttonAlign">
-        <app-button
+        <vc-button
           type="secondary"
           *ngIf="secondaryButtonText"
           (click)="onConfirm(false)"
           [disabled]="secondaryButtonDisabled"
           [text]="secondaryButtonText"
-        ></app-button>
-        <app-button
+        ></vc-button>
+        <vc-button
           *ngIf="buttonText"
           [disabled]="buttonDisabled"
           (click)="onConfirm(true)"
           [text]="buttonText"
-        ></app-button>
+        ></vc-button>
       </div>
     </div>
   `,
@@ -56,18 +54,22 @@ export class DialogWrapperComponent {
   @Input() subTitle;
   @Input() subTitleValue;
   @Input() buttonText: string;
-  @Input() buttonAlign: "left" | "right" | "center" = "center";
+  @Input() buttonAlign: ButtonAlign = "center";
   @Input() buttonDisabled = false;
   @Input() secondaryButtonText: string;
   @Input() secondaryButtonDisabled = false;
   @Output() buttonEvent = new EventEmitter();
   @Output() close = new EventEmitter();
 
-  @HostListener("document:keydown.escape")
-  closeEvent() {
-    this.close.emit();
+  @HostListener("document:keydown.escape", ['$event'])
+  closeEvent($event) {
+    $event.preventDefault();
+    this.closeDialog();
   }
 
+  closeDialog() {
+    this.close.emit();
+  }
   onConfirm(value: boolean) {
     this.buttonEvent.emit(value);
   }

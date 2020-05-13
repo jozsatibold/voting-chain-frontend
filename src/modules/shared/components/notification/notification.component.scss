@@ -20,18 +20,15 @@
       position: relative;
       padding: 1rem 1.5rem;
       box-sizing: border-box;
-      border-radius: 20px;
-      color: $notification-text-primary-color;
-      font-size: 0.8em;
-      font-weight: 600;
-      font-family: $font-family;
+      border-radius: $border-radius;
+      color: $notification-color;
       display: flex;
       margin: 0.5rem 0;
       box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.11);
       transition: background-color 250ms;
 
       @include respond(mobile) {
-        border-radius: 12px;
+        border-radius: $border-radius-small;
         padding: 0.5rem 0.75rem;
       }
 
@@ -68,19 +65,14 @@
       }
 
       &--notification {
-        background-color: $notification-color;
-        color: #000000 !important;
-        svg-icon {
-          fill: #000000 !important;
-        }
-
+        background-color: $scroll-color;
         &:hover {
-          background-color: $notification-color-hover;
+          background-color: $scroll-color-hover;
         }
       }
 
       &__close {
-        fill: #fff;
+        fill: $notification-color;
         cursor: pointer;
         margin-left: 0.5rem;
         width: 20px;
@@ -88,7 +80,7 @@
       }
 
       &__icon {
-        fill: #fff;
+        fill: $notification-color;
         margin-right: 0.5rem;
       }
 

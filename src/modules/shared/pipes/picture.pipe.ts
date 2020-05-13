@@ -3,23 +3,20 @@ import { DomSanitizer } from "@angular/platform-browser";
 
 @Pipe({ name: "picture" })
 export class PicturePipe implements PipeTransform {
-  public static PICTURE_USER = "default";
-  public static PICTURE_UNSAFE_USER = "base";
-
   constructor(private sanitizer: DomSanitizer) {}
 
-  transform(src: string, type: string = "base") {
+  transform(src: string) {
     let validSrc = false;
-    if (src && src !== "null" && src !== "undefined") {
+    if (!!src && src !== "null" && src !== "undefined") {
       validSrc = true;
     }
     if (validSrc) {
-      if (type === PicturePipe.PICTURE_UNSAFE_USER) {
+      if (!(/^(http:\/\/)|(https:\/\/)(www.)?.*/.test(src))) {
         return src;
       }
       return this.sanitizer.bypassSecurityTrustUrl(src);
     } else {
-      return "./assets/images/profile-img.png";
+      return "./assets/images/profile.png";
     }
   }
 }

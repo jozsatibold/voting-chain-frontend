@@ -1,7 +1,7 @@
 import { AfterViewChecked, Component, OnDestroy, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-main",
+  selector: "vc-main",
   templateUrl: "./main.component.html",
   styleUrls: ["./main.component.scss"]
 })
