@@ -20,21 +20,3 @@ $breakpoint arguement choices:
     } // >835px
   }
 }
-
-@mixin themeLight() {
-  $text-color: $background-color;
-  $text-color-active: $background-color-hover;
-  $primary-color: $background-color-light;
-  $primary-color-hover: $background-color-light-hover;
-  $secondary-color: $background-secondary-light-color;
-  $secondary-color-hover: $background-secondary-light-hover-color;
-}
-
-@mixin themeDark() {
-  $text-color: $background-secondary-light-color;
-  $text-color-active: $background-secondary-light-hover-color;
-  $primary-color: $background-color;
-  $primary-color-hover: $background-color-hover;
-  $secondary-color: $background-secondary-color;
-  $secondary-color-hover: $background-secondary-hover-color;
-}

@@ -1,19 +1,18 @@
-//Background colors
-$background-color: #33474f;
-$background-color-hover: #2c4048;
-$background-secondary-color: #506f7a;
-$background-secondary-hover-color: #496772;
-$background-color-light: $background-secondary-color;
-$background-color-light-hover: $background-secondary-hover-color;
-$background-secondary-light-color: #ffffff;
-$background-secondary-light-hover-color: #f1f1f1;
+html {
+  --text-color: #FFFF;
+  --text-color-active: #f1f1f1;
+  --primary-color: #33474f;
+  --primary-color-hover: #2c4048;
+  --secondary-color: #506f7a;
+  --secondary-color-hover: #496772;
+}
 
-$text-color: $background-secondary-light-color;
-$text-color-active: $background-secondary-light-hover-color;
-$primary-color: $background-color;
-$primary-color-hover: $background-color-hover;
-$secondary-color: $background-secondary-color;
-$secondary-color-hover: $background-secondary-hover-color;
+$text-color: var(--text-color);
+$text-color-active: var(--text-color-active);
+$primary-color: var(--primary-color);
+$primary-color-hover: var(--primary-color-hover);
+$secondary-color: var(--secondary-color);
+$secondary-color-hover: var(--secondary-color-hover);
 $scroll-color:#3e535b;
 $scroll-color-hover:#3c4f57;
 

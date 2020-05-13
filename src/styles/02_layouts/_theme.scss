@@ -1,9 +1,0 @@
-
-.theme {
-  &--light {
-    @include themeLight();
-  }
-  &--dark {
-    @include themeDark();
-  }
-}

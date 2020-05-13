@@ -1,24 +1,24 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {AppRoutingModule} from "./app-routing.module";
+import {AppComponent} from "./app.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
   HTTP_INTERCEPTORS,
   HttpClient,
   HttpClientModule
 } from "@angular/common/http";
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { SharedModule } from "../modules/shared/shared.module";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { TokenInterceptor } from "./interceptors/token.interceptor";
-import { RouteInterceptor } from "./interceptors/route.interceptor";
-import { GlobalModule } from "../modules/global";
-import { MainComponent } from "./containers/main/main.component";
-import { reducers } from "./+state";
-import { StoreModule } from "@ngrx/store";
-import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-import { EffectsModule } from "@ngrx/effects";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {SharedModule} from "../modules/shared/shared.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TokenInterceptor} from "./interceptors/token.interceptor";
+import {RouteInterceptor} from "./interceptors/route.interceptor";
+import {GlobalModule} from "../modules/global";
+import {MainComponent} from "./containers/main/main.component";
+import {reducers} from "./+state";
+import {StoreModule} from "@ngrx/store";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {EffectsModule} from "@ngrx/effects";
 import {
   PERFECT_SCROLLBAR_CONFIG,
   PerfectScrollbarConfigInterface
@@ -29,12 +29,18 @@ import {LoginComponent} from "./containers/login/login.component";
 import {RegistrationComponent} from "./containers/registration/registration.component";
 import {HomeComponent} from "./containers/home/home.component";
 
-
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
-const containers = [AppComponent, MainComponent, AuthorizationComponent, LoginComponent, RegistrationComponent, HomeComponent];
+const containers = [
+  AppComponent,
+  MainComponent,
+  AuthorizationComponent,
+  LoginComponent,
+  RegistrationComponent,
+  HomeComponent
+];
 
 const components = [];
 
@@ -63,8 +69,8 @@ const components = [];
   ],
   entryComponents: [],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: RouteInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: RouteInterceptor, multi: true},
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
@@ -72,4 +78,5 @@ const components = [];
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

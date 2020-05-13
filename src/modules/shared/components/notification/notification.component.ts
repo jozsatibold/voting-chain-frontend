@@ -4,7 +4,7 @@ import {filter, map, takeUntil} from "rxjs/operators";
 import { NotificationService } from "../../../global/services";
 
 @Component({
-  selector: "app-notification",
+  selector: "vc-notification",
   templateUrl: "./notification.component.html",
   styleUrls: ["./notification.component.scss"]
 })

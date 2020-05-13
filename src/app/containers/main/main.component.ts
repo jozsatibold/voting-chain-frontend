@@ -1,4 +1,7 @@
-import { AfterViewChecked, Component, OnDestroy, OnInit } from "@angular/core";
+import {AfterViewChecked, ChangeDetectorRef, Component, OnDestroy, OnInit} from "@angular/core";
+import {UiService} from "../../../modules/global/services";
+import {Subject} from "rxjs";
+import {distinctUntilChanged, takeUntil, tap} from "rxjs/operators";
 
 @Component({
   selector: "vc-main",
@@ -6,11 +9,27 @@ import { AfterViewChecked, Component, OnDestroy, OnInit } from "@angular/core";
   styleUrls: ["./main.component.scss"]
 })
 export class MainComponent implements OnInit, OnDestroy, AfterViewChecked {
-  constructor() {}
+  private destroy$ = new Subject();
 
-  ngOnInit(): void {}
+  constructor(
+    private uiService: UiService,
+    private cdr: ChangeDetectorRef
+  ) {
+  }
 
-  ngAfterViewChecked() {}
+  ngOnInit(): void {
+    this.uiService.initTheme();
+    this.uiService.darkMode$.pipe(
+      distinctUntilChanged(),
+      tap(v => console.log(v)),
+      takeUntil(this.destroy$)
+    ).subscribe(() => this.cdr.detectChanges());
+  }
 
-  ngOnDestroy(): void {}
+  ngAfterViewChecked() {
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+  }
 }

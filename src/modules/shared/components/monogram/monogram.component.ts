@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: "app-monogram",
+  selector: "vc-monogram",
   templateUrl: "./monogram.component.html",
   styleUrls: ["./monogram.component.scss"]
 })
