@@ -8,8 +8,11 @@ import {BehaviorSubject} from "rxjs";
 export class UiService {
   private STORAGE_KEY = 'darkMode';
   private render: Renderer2;
-  private darkModeEnabled = new BehaviorSubject<boolean>(null);
-  darkMode$ = this.darkModeEnabled.asObservable();
+  private _darkModeEnabled$ = new BehaviorSubject<boolean>(null);
+  private _showHeader$ = new BehaviorSubject<boolean>(true);
+
+  darkMode$ = this._darkModeEnabled$.asObservable();
+  showHeader$ = this._showHeader$.asObservable();
 
   constructor(rendererFactory: RendererFactory2) {
     this.render = rendererFactory.createRenderer(null, null);
@@ -21,14 +24,14 @@ export class UiService {
   }
 
   setDarkMode(darkModeEnabled: boolean): void {
-    if (this.darkModeEnabled.getValue() !== darkModeEnabled) {
+    if (this._darkModeEnabled$.getValue() !== darkModeEnabled) {
       this.changeColor(darkModeEnabled ? Theme.DARK : Theme.LIGHT);
-      this.darkModeEnabled.next(darkModeEnabled);
+      this._darkModeEnabled$.next(darkModeEnabled);
       localStorage.setItem(this.STORAGE_KEY, `${darkModeEnabled}`);
     }
   }
 
-  changeColor(theme: Theme) {
+  private changeColor(theme: Theme) {
     const selectedTheme = themes[theme];
     if (!!selectedTheme) {
       Object.keys(selectedTheme).forEach((key) => {
@@ -36,4 +39,9 @@ export class UiService {
       });
     }
   }
+
+  showHeader(show: boolean): void {
+    this._showHeader$.next(show);
+  }
+
 }

@@ -1,8 +1,11 @@
-<div class="authorization">
-  <div class="authorization__menu">
+<div class="login">
+  <h2 class="login__title">{{'LBL_AUTHORIZATION.LOGIN' | translate}}</h2>
+  <form [formGroup]="loginForm.form()"
+        class="login__form">
 
-  </div>
-  <div class="authorization__container">
-    <router-outlet></router-outlet>
-  </div>
+    <vc-button
+      class="login__form__button"
+      text="LBL_AUTHORIZATION.LOGIN"
+      inputType="submit"></vc-button>
+  </form>
 </div>

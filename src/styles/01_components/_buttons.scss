@@ -13,7 +13,7 @@ button {
 }
 
 .vc-btn {
-  border-radius: 16px;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,8 +21,9 @@ button {
   box-shadow: $box-shadow--mini;
   transition: box-shadow 250ms;
 
+
   &:hover {
-    box-shadow: $box-shadow;
+    box-shadow: $box-shadow !important;
   }
 
 
@@ -31,14 +32,21 @@ button {
   }
 
   &--primary {
+    border: none;
     background-color: $text-color;
     color: $primary-color;
+    span {
+      color: $primary-color;
+    }
   }
 
   &--secondary {
     border: 2px solid $text-color;
     background-color: transparent;
     color: $text-color;
+    span {
+      color: $text-color;
+    }
   }
 
   &--icon {

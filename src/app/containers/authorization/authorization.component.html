@@ -1,8 +1,30 @@
-<div class="authorization">
-  <div class="authorization__menu">
+<perfect-scrollbar>
+  <div class="authorization">
+    <div class="authorization__menu">
+      <div class="only-desktop authorization__menu__logo">
+        <img src="assets/images/images/VoteIcon.png" [alt]="'LBL_LOGO' | translate">
+      </div>
+      <div *ngIf="(isLogin$ | async); else registration" class="authorization__menu__navigation">
+        <h2 class="authorization__menu__navigation__title">{{'LBL_AUTHORIZATION.REGISTRATION_TITLE' | translate}}</h2>
+        <h4
+          class="authorization__menu__navigation__subtitle">{{'LBL_AUTHORIZATION.REGISTRATION_SUBTITLE' | translate}}</h4>
+        <vc-button class="authorization__menu__navigation__button"
+                   text="LBL_AUTHORIZATION.REGISTRATION"
+                   routerLink="/authorization/registration"></vc-button>
+      </div>
+    </div>
+    <div class="authorization__container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</perfect-scrollbar>
 
+<ng-template #registration>
+  <div class="authorization__menu__navigation">
+    <h2 class="authorization__menu__navigation__title">{{'LBL_AUTHORIZATION.LOGIN_TITLE' | translate}}</h2>
+    <h4 class="authorization__menu__navigation__subtitle">{{'LBL_AUTHORIZATION.LOGIN_SUBTITLE' | translate}}</h4>
+    <vc-button class="authorization__menu__navigation__button"
+               text="LBL_AUTHORIZATION.LOGIN"
+               routerLink="/authorization/login"></vc-button>
   </div>
-  <div class="authorization__container">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+</ng-template>

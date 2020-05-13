@@ -11,19 +11,11 @@ import {distinctUntilChanged, takeUntil, tap} from "rxjs/operators";
 export class MainComponent implements OnInit, OnDestroy, AfterViewChecked {
   private destroy$ = new Subject();
 
-  constructor(
-    private uiService: UiService,
-    private cdr: ChangeDetectorRef
-  ) {
+  constructor(private uiService: UiService) {
   }
 
   ngOnInit(): void {
     this.uiService.initTheme();
-    this.uiService.darkMode$.pipe(
-      distinctUntilChanged(),
-      tap(v => console.log(v)),
-      takeUntil(this.destroy$)
-    ).subscribe(() => this.cdr.detectChanges());
   }
 
   ngAfterViewChecked() {

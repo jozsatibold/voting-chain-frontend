@@ -1,4 +1,5 @@
 import { Component, OnDestroy, HostListener, OnInit } from "@angular/core";
+import {LanguageService} from "../modules/global/services";
 
 @Component({
   selector: "app-root",
@@ -9,14 +10,16 @@ import { Component, OnDestroy, HostListener, OnInit } from "@angular/core";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit, OnDestroy {
-  constructor() {}
+  constructor(private languageService: LanguageService,) {}
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {
     this.ngOnDestroy();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.languageService.loadLanguages();
+  }
 
   ngOnDestroy(): void {}
 }

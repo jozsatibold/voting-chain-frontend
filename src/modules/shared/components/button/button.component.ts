@@ -1,12 +1,13 @@
 import {Component, Input} from "@angular/core";
-import {ButtonType} from "../../../global/entities/general.entity";
+import {ButtonInputType, ButtonType} from "../../../global/entities/general.entity";
 
 @Component({
   selector: "vc-button",
   template: `
     <button
       class="vc-btn"
-      mat-button
+      matRipple
+      [type]="inputType"
       [disabled]="disabled"
       [class.vc-btn--primary]="type === 'primary'"
       [class.vc-btn--secondary]="type === 'secondary'">
@@ -15,6 +16,7 @@ import {ButtonType} from "../../../global/entities/general.entity";
 })
 export class ButtonComponent {
   @Input() type: ButtonType = "primary";
+  @Input() inputType: ButtonInputType = "button";
   @Input() text = "";
   @Input() disabled = false;
 }

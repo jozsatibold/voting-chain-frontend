@@ -133,3 +133,18 @@
 .mt-1 {
   margin-top: 1rem !important;
 }
+
+.only-mobile {
+  display: none;
+  @include respond(mobile) {
+    display: block !important;
+  }
+}
+
+.only-desktop {
+  display: block;
+
+  @include respond(mobile) {
+    display: none !important;
+  }
+}

@@ -1,1 +1,65 @@
 @import "00_base/base";
+perfect-scrollbar {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.authorization {
+  width: 100%;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+
+  @include respond(mobile) {
+    flex-direction: column-reverse;
+
+    &__container {
+      height: auto !important;
+      width: 100vw !important;
+    }
+    &__menu {
+      width: 100vw !important;
+      height: auto !important;
+    }
+
+  }
+
+  &__container {
+    width: 65vw;
+    height: 100vh;
+  }
+
+  &__menu {
+    width: 35vw;
+    height: 100vh;
+    display: block;
+    background-color: $primary-color;
+    padding: $padding-big;
+
+    &__logo {
+      width: 100%;
+      height: auto;
+      display: block;
+      padding: $padding-medium 0;
+
+      img {
+        height: auto;
+        max-width: 250px;
+        display: block;
+        width: 100%;
+        margin: auto;
+      }
+    }
+    &__navigation {
+      padding: $padding-big 0;
+      text-align: center;
+
+      &__button {
+        max-width: 120px;
+        display: block;
+        margin: $padding-big auto;
+      }
+    }
+  }
+}

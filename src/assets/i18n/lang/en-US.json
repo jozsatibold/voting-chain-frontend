@@ -1,1 +1,11 @@
-{}
+{
+  "LBL_AUTHORIZATION": {
+    "LOGIN": "SIGN IN",
+    "LOGIN_TITLE": "Welcome Back!",
+    "LOGIN_SUBTITLE": "To keep connected with us please login with your personal info",
+    "REGISTRATION": "SIGN UP",
+    "REGISTRATION_TITLE": "Welcome, Friend!",
+    "REGISTRATION_SUBTITLE": "Enter your personal details and start a voting"
+  },
+  "LBL_LOGO": "VotingChain logo"
+}

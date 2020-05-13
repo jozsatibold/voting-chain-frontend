@@ -1,1 +1,11 @@
-{}
+{
+  "LBL_AUTHORIZATION": {
+    "LOGIN": "Bejelentkezés",
+    "LOGIN_TITLE": "Üdv újra!",
+    "LOGIN_SUBTITLE": "Ha kapcsolatba akar lépni velünk, kérjük, jelentkezzen be a személyes adataival",
+    "REGISTRATION": "Regisztráció",
+    "REGISTRATION_TITLE": "Üdvözöllek barátom!",
+    "REGISTRATION_SUBTITLE": "Írja be személyes adatait, és kezdje el a szavazást"
+  },
+  "LBL_LOGO": "VotingChain logó"
+}
