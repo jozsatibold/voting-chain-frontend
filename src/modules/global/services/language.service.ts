@@ -28,7 +28,7 @@ export class LanguageService {
   getCurrentLanguage = (): Observable<string> =>
     this.currentLanguage.asObservable().pipe(distinctUntilChanged());
 
-  getLanguageList = (): Observable<string[]> =>
+  getLanguageList = (): Observable<Array<string>> =>
     of(this.translateService.getLangs());
 
   loadLanguages() {

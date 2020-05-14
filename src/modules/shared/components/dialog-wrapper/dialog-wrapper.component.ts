@@ -5,7 +5,7 @@ import {
   Input,
   Output
 } from "@angular/core";
-import {ButtonAlign} from "../../../global/entities";
+import {ButtonAlign} from "../../../global/enums";
 
 @Component({
   selector: "vc-dialog-wrapper",

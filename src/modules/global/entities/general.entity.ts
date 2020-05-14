@@ -1,7 +1,4 @@
-export type ButtonType = 'primary' | 'secondary';
-
-export type ButtonInputType = 'button' | 'submit' | 'reset';
-
-export type ButtonAlign = "left" | "right" | "center";
-
-export type NotificationTypes =     | "danger" | "warning" | "info" | "success" | "notification";
+export interface SelectOption {
+  key: string | number | Date | boolean;
+  value: string | number | Date | boolean;
+}

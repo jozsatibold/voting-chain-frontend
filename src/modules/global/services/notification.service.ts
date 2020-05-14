@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ReplaySubject } from "rxjs";
-import {NotificationTypes} from "../entities";
+import {NotificationTypes} from "../enums";
 
 @Injectable({
   providedIn: "root"

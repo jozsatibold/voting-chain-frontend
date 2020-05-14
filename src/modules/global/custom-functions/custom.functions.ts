@@ -7,3 +7,4 @@ export function secondsToHours(seconds: number) {
 export function hoursToSeconds(hours: number) {
   return hours * 3600;
 }
+

@@ -1,0 +1,13 @@
+@import "00_base/base";
+
+.footer {
+  width: 100%;
+  padding: $padding-big;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  &__input {
+    margin:0 $padding-small;
+    width: 10rem;
+  }
+}

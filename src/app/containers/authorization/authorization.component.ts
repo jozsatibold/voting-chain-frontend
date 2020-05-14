@@ -1,11 +1,11 @@
-import {AfterViewChecked, Component, OnDestroy, OnInit} from "@angular/core";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import {BehaviorSubject, combineLatest, of, Subject} from "rxjs";
-import {UiService} from "../../../modules/global/services";
+import {UiService} from "@global/services";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter, map, takeUntil, tap} from "rxjs/operators";
+import {filter, map} from "rxjs/operators";
 
 @Component({
-  selector: "app-authorization",
+  selector: "vc-authorization",
   templateUrl: "./authorization.component.html",
   styleUrls: ["./authorization.component.scss"]
 })

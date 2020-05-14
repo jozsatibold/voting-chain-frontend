@@ -1,8 +1,46 @@
-<div class="authorization">
-  <div class="authorization__menu">
-
-  </div>
-  <div class="authorization__container">
-    <router-outlet></router-outlet>
-  </div>
+<div class="block">
+  <h2 class="block__title">{{'LBL_AUTHORIZATION.REGISTRATION' | translate}}</h2>
+  <form [formGroup]="loginForm.form()"
+        class="block__form">
+    <vc-text-input
+      inputType="email"
+      placeholder="LBL_INPUT.PLACEHOLDER.EMAIL"
+      [control]="loginForm.get('email')"
+      class="block__form__input"
+    ></vc-text-input>
+    <vc-text-input
+      placeholder="LBL_INPUT.PLACEHOLDER.NAME"
+      [control]="loginForm.get('name')"
+      class="block__form__input"
+    ></vc-text-input>
+    <vc-date-input
+      placeholder="LBL_INPUT.PLACEHOLDER.BIRTH_DATE"
+      [max]="maxDate"
+      [min]="minDate"
+      [control]="loginForm.get('birthDate')"
+      class="block__form__input"
+    ></vc-date-input>
+    <vc-select-input
+      placeholder="LBL_INPUT.PLACEHOLDER.SEX"
+      [control]="loginForm.get('sex')"
+      [options]="sexOptions"
+      class="block__form__input"
+    ></vc-select-input>
+    <vc-text-input
+      inputType="password"
+      placeholder="LBL_INPUT.PLACEHOLDER.PIN"
+      [control]="loginForm.get('pin')"
+      class="block__form__input"
+    ></vc-text-input>
+    <vc-text-input
+      inputType="password"
+      placeholder="LBL_INPUT.PLACEHOLDER.PIN_VERIFICATION"
+      [control]="loginForm.get('pin')"
+      class="block__form__input"
+    ></vc-text-input>
+    <vc-button
+      class="block__form__button"
+      text="LBL_AUTHORIZATION.REGISTRATION"
+      inputType="submit"></vc-button>
+  </form>
 </div>

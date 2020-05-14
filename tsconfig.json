@@ -13,7 +13,11 @@
     "importHelpers": true,
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@shared/*": ["src/modules/shared/*"],
+      "@global/*": ["src/modules/global/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableIvy": true

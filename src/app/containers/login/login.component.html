@@ -1,10 +1,21 @@
-<div class="login">
-  <h2 class="login__title">{{'LBL_AUTHORIZATION.LOGIN' | translate}}</h2>
+<div class="block">
+  <h2 class="block__title">{{'LBL_AUTHORIZATION.LOGIN' | translate}}</h2>
   <form [formGroup]="loginForm.form()"
-        class="login__form">
-
+        class="block__form">
+    <vc-text-input
+      inputType="email"
+      placeholder="LBL_INPUT.PLACEHOLDER.EMAIL"
+      [control]="loginForm.get('email')"
+      class="block__form__input"
+    ></vc-text-input>
+    <vc-text-input
+      inputType="password"
+      placeholder="LBL_INPUT.PLACEHOLDER.PIN"
+      [control]="loginForm.get('pin')"
+      class="block__form__input"
+    ></vc-text-input>
     <vc-button
-      class="login__form__button"
+      class="block__form__button"
       text="LBL_AUTHORIZATION.LOGIN"
       inputType="submit"></vc-button>
   </form>

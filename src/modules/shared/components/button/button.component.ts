@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {ButtonInputType, ButtonType} from "../../../global/entities/general.entity";
+import {ButtonInputType, ButtonType} from "@global/enums/general.enum";
 
 @Component({
   selector: "vc-button",

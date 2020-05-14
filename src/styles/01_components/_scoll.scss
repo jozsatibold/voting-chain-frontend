@@ -23,3 +23,17 @@
   border-radius: $border-radius;
   transition: background-color 250ms;
 }
+
+.ps {
+  &__rail {
+    &-y, &-x {
+      border-radius: $border-radius;
+      background-color: rgba(255, 255, 255, 0.25) !important;
+    }
+  }
+  &__thumb {
+    &-y, &-x {
+      background-color: $scroll-color !important;
+    }
+  }
+}

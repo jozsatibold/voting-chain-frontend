@@ -1,7 +1,6 @@
 import {AfterViewChecked, ChangeDetectorRef, Component, OnDestroy, OnInit} from "@angular/core";
-import {UiService} from "../../../modules/global/services";
-import {Subject} from "rxjs";
-import {distinctUntilChanged, takeUntil, tap} from "rxjs/operators";
+import {UiService} from "@global/services";
+import {Observable, Subject} from "rxjs";
 
 @Component({
   selector: "vc-main",
@@ -11,11 +10,13 @@ import {distinctUntilChanged, takeUntil, tap} from "rxjs/operators";
 export class MainComponent implements OnInit, OnDestroy, AfterViewChecked {
   private destroy$ = new Subject();
 
+  showHeader$: Observable<boolean>;
   constructor(private uiService: UiService) {
   }
 
   ngOnInit(): void {
     this.uiService.initTheme();
+    this.showHeader$ = this.uiService.showHeader$;
   }
 
   ngAfterViewChecked() {

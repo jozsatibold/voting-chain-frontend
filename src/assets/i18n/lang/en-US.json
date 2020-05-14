@@ -7,5 +7,34 @@
     "REGISTRATION_TITLE": "Welcome, Friend!",
     "REGISTRATION_SUBTITLE": "Enter your personal details and start a voting"
   },
-  "LBL_LOGO": "VotingChain logo"
+  "LBL_LOGO": "VotingChain logo",
+  "LBL_INPUT": {
+    "ERROR": {
+      "REQUIRED": "Required",
+      "EMAIL": "Invalid email address",
+      "ADULT": "You must be at least 18 years old"
+    },
+    "PLACEHOLDER": {
+      "EMAIL": "Email address",
+      "PIN": "Pin code",
+      "NAME": "Full name",
+      "BIRTH_DATE": "Birth date",
+      "SEX": "Sex",
+      "PIN_VERIFICATION": "Pin verification",
+      "LANGUAGE": "Language",
+      "THEME": "Theme"
+    },
+    "VALUE": {
+      "MALE": "Male",
+      "FEMALE": "Female"
+    }
+  },
+  "LBL_THEME": {
+    "DARK": "Dark theme",
+    "LIGHT": "Light theme"
+  },
+  "LBL_LANGUAGE": {
+    "EN-US": "English",
+    "HU": "Hungarian"
+  }
 }

@@ -1,13 +1,11 @@
 import {AfterViewChecked, Component, OnDestroy, OnInit} from "@angular/core";
-import {FormGroup, Validators} from "@angular/forms";
-import {FormService} from "../../../modules/global/services/form.service";
-import {error} from "@angular/compiler/src/util";
-import {VCForm} from "../../../modules/global/entities";
+import {Validators} from "@angular/forms";
+import {FormService} from "@global/services/form.service";
+import {VCForm} from "@global/entities";
 
 @Component({
   selector: "vc-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  templateUrl: "./login.component.html"
 })
 export class LoginComponent implements OnInit, OnDestroy, AfterViewChecked {
 
@@ -23,18 +21,18 @@ export class LoginComponent implements OnInit, OnDestroy, AfterViewChecked {
         value: '',
         validators: [
           {
-            error: 'LBL_INPUT_ERROR.REQUIRED',
+            error: 'LBL_INPUT.ERROR.REQUIRED',
             validator: Validators.required
           },
           {
-            error: 'LBL_INPUT_ERROR.EMAIL',
+            error: 'LBL_INPUT.ERROR.EMAIL',
             validator: Validators.email
           }]
       }, {
-        name: 'password',
+        name: 'pin',
         value: '',
         validators: [{
-          error: 'LBL_INPUT_ERROR.REQUIRED',
+          error: 'LBL_INPUT.ERROR.REQUIRED',
           validator: Validators.required
         }]
       }]);

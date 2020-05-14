@@ -1,11 +1,40 @@
 {
   "LBL_AUTHORIZATION": {
-    "LOGIN": "Bejelentkezés",
+    "LOGIN": "BEJELENTKEZÉS",
     "LOGIN_TITLE": "Üdv újra!",
     "LOGIN_SUBTITLE": "Ha kapcsolatba akar lépni velünk, kérjük, jelentkezzen be a személyes adataival",
-    "REGISTRATION": "Regisztráció",
+    "REGISTRATION": "REGISZTRÁCIÓ",
     "REGISTRATION_TITLE": "Üdvözöllek barátom!",
     "REGISTRATION_SUBTITLE": "Írja be személyes adatait, és kezdje el a szavazást"
   },
-  "LBL_LOGO": "VotingChain logó"
+  "LBL_LOGO": "VotingChain logo",
+  "LBL_INPUT": {
+    "ERROR": {
+      "REQUIRED": "Kötelező",
+      "EMAIL": "Érvénytelen email cím",
+      "ADULT": "Legalább 18 évesnek kell lennie"
+    },
+    "PLACEHOLDER": {
+      "EMAIL": "Email cím",
+      "PIN": "Pin kód",
+      "NAME": "Teljes név",
+      "BIRTH_DATE": "Születési dárum",
+      "SEX": "Nem",
+      "PIN_VERIFICATION": "Pin ellenőrzés",
+      "LANGUAGE": "Nyelv",
+      "THEME": "Téma"
+    },
+    "VALUE": {
+      "MALE": "Férfi",
+      "FEMALE": "Nő"
+    }
+  },
+  "LBL_THEME": {
+    "DARK": "Sötét téma",
+    "LIGHT": "Világos téma"
+  },
+  "LBL_LANGUAGE": {
+    "EN-US": "Angol",
+    "HU": "Magyar"
+  }
 }

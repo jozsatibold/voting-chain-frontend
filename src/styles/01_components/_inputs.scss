@@ -1,0 +1,39 @@
+.vc-text-input {
+  width: 100%;
+  display: block;
+  background-color: rgba(127,127,127, 0.5);
+  padding: 0.5rem 2rem;
+  border-radius: 32px;
+
+  input {
+    color: $text-color !important;
+    font-weight: $font-medium !important;
+    font-size: $h5-font-size !important;
+    background-color: transparent !important;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active  {
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: #fff !important;
+    }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+
+    .mat-error {
+      color: $danger-color !important;
+    }
+    .mat-form-field-invalid .mat-form-field-ripple, .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+      background-color: $danger-color !important;
+    }
+    .mat-form-field-ripple {
+      background-color: $primary-color !important;
+    }
+}

@@ -45,9 +45,13 @@ export class VCFormControl {
     this.errors = errors;
   }
 
-  getError(name) {
-    const error = this.errors.find(error => error.type === name);
-    return error ? error.error : null;
+  getError(name = null) {
+    const errorName = name || this.hasError();
+    if (errorName) {
+      const error = this.errors.find(error => error.type === errorName);
+      return error ? error.error : null;
+    }
+    return null;
   }
 
   hasError() {

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { BehaviorSubject, interval, Subject } from "rxjs";
 import {filter, map, takeUntil} from "rxjs/operators";
-import { NotificationService } from "../../../global/services";
+import { NotificationService } from "@global/services";
 
 @Component({
   selector: "vc-notification",
