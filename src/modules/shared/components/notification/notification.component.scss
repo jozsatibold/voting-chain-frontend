@@ -65,9 +65,9 @@
       }
 
       &--notification {
-        background-color: $scroll-color;
+        background-color: $notification-color;
         &:hover {
-          background-color: $scroll-color-hover;
+          background-color: $notification-color-hover;
         }
       }
 
@@ -85,10 +85,11 @@
       }
 
       &__message {
-        width: calc(100% - 4.25rem);
+        width: calc(100% - 5rem);
         display: block;
         overflow: hidden;
-        padding: 0.15rem 0.25rem 0 0.25rem;
+        font-weight: $font-medium;
+        padding: 0.15rem 0.25rem 0 1rem;
         box-sizing: border-box;
         line-height: 23px;
       }

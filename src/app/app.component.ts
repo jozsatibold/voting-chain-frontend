@@ -1,10 +1,10 @@
 import { Component, OnDestroy, HostListener, OnInit } from "@angular/core";
-import {LanguageService} from "../modules/global/services";
+import {LanguageService} from "@global/services";
 
 @Component({
   selector: "app-root",
   template: `
-    <vc-notification class="notification"></vc-notification>
+    <vc-notification class="app__notification"></vc-notification>
     <vc-main></vc-main>
   `,
   styleUrls: ["./app.component.scss"]

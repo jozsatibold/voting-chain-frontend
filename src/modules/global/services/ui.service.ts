@@ -1,6 +1,6 @@
 import {Injectable, Renderer2, RendererFactory2} from "@angular/core";
 import {Theme, themes} from "../enums";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Subject} from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -8,11 +8,17 @@ import {BehaviorSubject} from "rxjs";
 export class UiService {
   private STORAGE_KEY = 'darkMode';
   private render: Renderer2;
+  private _toggleMenu$ = new Subject();
   private _darkModeEnabled$ = new BehaviorSubject<boolean>(null);
   private _showHeader$ = new BehaviorSubject<boolean>(true);
 
   darkMode$ = this._darkModeEnabled$.asObservable();
   showHeader$ = this._showHeader$.asObservable();
+  toggleMenu$ = this._toggleMenu$.asObservable();
+
+  toggleMenu() {
+    this._toggleMenu$.next();
+  }
 
   constructor(rendererFactory: RendererFactory2) {
     this.render = rendererFactory.createRenderer(null, null);

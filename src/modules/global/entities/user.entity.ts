@@ -1,7 +1,10 @@
 export interface User {
-  username: string;
-  picture: string;
+  name: string;
+  picture?: string;
   email: string;
-  id: number;
-  role: string;
+  birthDate?: number;
+  sex?: 'F' | 'M';
+  pin?: string;
+  id?: number;
+  role?: string;
 }

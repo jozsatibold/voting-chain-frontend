@@ -1,4 +1,5 @@
-import { Component, Input } from "@angular/core";
+import {Component, Input} from "@angular/core";
+import {User} from "@global/entities";
 
 @Component({
   selector: "vc-monogram",
@@ -10,14 +11,14 @@ export class MonogramComponent {
   fontSize = "1.2em";
   monogram = "";
 
-  color = "#000000";
+  color = "var(--text-color)";
   @Input() picture = "";
   @Input() fixFontSize;
   @Input() inactiveMode = false;
 
   @Input("color")
   set setColor(color) {
-    this.color = color || "#000000";
+    this.color = color || 'var(--text-color)';
   }
 
   @Input("size")
@@ -29,34 +30,16 @@ export class MonogramComponent {
   }
 
   @Input("data")
-  set setData(data: {
-    name?: string;
-    firstName?: string;
-    lastName?: string;
-    picture?: string;
-    profileImg?: string;
-    monogram?: string;
-    avatar?: string;
-    type?: "user" | "admin";
-    role?: "user" | "admin";
-  }) {
+  set setData(data: User) {
     if (data) {
-      this.picture = data.picture || data.avatar || data.profileImg || "";
+      this.picture = data.picture || "";
       if (data.name) {
         this.setUsername = data.name;
-      } else if (data.firstName && data.lastName) {
-        this.monogram = `${data.firstName[0]}${data.lastName[0]}`.toUpperCase();
-      } else if (data.monogram) {
-        this.monogram = data.monogram.toUpperCase();
       } else {
         this.monogram = "--";
       }
-      if (
-        ((data.type && data.type === "admin") ||
-          (data.role && data.role === "admin")) &&
-        this.color === "#2c4048"
-      ) {
-        this.color = "#3e535b";
+      if ((data.role && data.role === "admin") && this.color === "#2c4048") {
+        this.color = "var(--secondary-color)";
       }
     } else {
       this.picture = "";
@@ -65,18 +48,14 @@ export class MonogramComponent {
   }
 
   @Input("name")
-  set setUsername(name: string | { firstName: string; lastName: string }) {
-    if (name instanceof Object) {
-      this.monogram = `${name.firstName[0]}${name.lastName[0]}`.toUpperCase();
+  set setUsername(name: string) {
+    const parts = (name || "").split(" ").filter(part => !!part);
+    if (parts.length > 1) {
+      this.monogram = `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+    } else if (parts.length === 1) {
+      this.monogram = `${parts[0][0]}${parts[0][1]}`.toUpperCase();
     } else {
-      const parts = (name || "").split(" ").filter(part => !!part);
-      if (parts.length > 1) {
-        this.monogram = `${parts[0][0]}${parts[1][0]}`.toUpperCase();
-      } else if (parts.length === 1) {
-        this.monogram = `${parts[0][0]}${parts[0][1]}`.toUpperCase();
-      } else {
-        this.monogram = "--";
-      }
+      this.monogram = "--";
     }
   }
 }

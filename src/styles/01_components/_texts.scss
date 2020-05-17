@@ -84,6 +84,15 @@ span, div, p, label {
   font-weight: $font-bold !important;
 }
 
+.text-error {
+  color: $danger-color !important;
+}
+
+.text-center {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
 .text-medium {
   font-weight: $font-medium !important;
 }

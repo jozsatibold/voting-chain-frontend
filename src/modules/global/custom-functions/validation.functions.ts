@@ -6,9 +6,9 @@ const username = (control: AbstractControl): { [key: string]: any } | null => {
 };
 const adult = (control: AbstractControl): { [key: string]: any } | null => {
   const date = new Date();
-  date.setFullYear(date.getDate() - 18);
+  date.setFullYear(date.getFullYear() - 18);
   const selectedDate = new Date(control.value);
-  return !selectedDate || selectedDate.getTime() > date.getTime() ? {'mature': {value: control.value}} : null;
+  return !selectedDate || selectedDate.getTime() > date.getTime() ? {'adult': {value: control.value}} : null;
 };
 
 export default {

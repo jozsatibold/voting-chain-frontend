@@ -1,1 +1,7 @@
-<header>VotingChain</header>
+<header class="header">
+  <mat-icon matRipple class="header__menu-btn" (click)="openMenu()">menu</mat-icon>
+  <div *ngIf="(user$ | async) as user" matRipple class="header__user" routerLink="/profile">
+    <vc-monogram [data]="user"></vc-monogram>
+    <h5 class="text-bold">{{user.name}}</h5>
+  </div>
+</header>

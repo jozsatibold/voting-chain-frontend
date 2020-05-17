@@ -10,7 +10,8 @@ import {VCFormControl} from "@global/entities";
       <input matInput [formControl]="control.control"
              [type]="inputType"
              [placeholder]="placeholder | translate"
-             [disabled]="disabled">
+             [disabled]="disabled"
+      [autocomplete]="!disableAutocomplete ? 'off' : null">
       <mat-error *ngIf="control.hasError()">
         {{control.getError() | translate}}
       </mat-error>
@@ -22,5 +23,6 @@ export class TextInputComponent {
   @Input() inputType: InputType = "text";
   @Input() control: VCFormControl;
   @Input() disabled = false;
+  @Input() disableAutocomplete = false;
 
 }

@@ -1,6 +1,7 @@
 <div class="block">
   <h2 class="block__title">{{'LBL_AUTHORIZATION.LOGIN' | translate}}</h2>
-  <form [formGroup]="loginForm.form()"
+  <form *ngIf="!(isLoginSuccess$ | async); else verification" [formGroup]="loginForm.form()"
+        (ngSubmit)="login()"
         class="block__form">
     <vc-text-input
       inputType="email"
@@ -17,6 +18,23 @@
     <vc-button
       class="block__form__button"
       text="LBL_AUTHORIZATION.LOGIN"
+      [disabled]="!loginForm.valid()"
       inputType="submit"></vc-button>
   </form>
 </div>
+<ng-template #verification>
+  <h4 class="block__subtitle">{{'LBL_AUTHORIZATION.VERIFICATION' | translate}}</h4>
+  <form class="block__form" [formGroup]="verificationForm.form()" (ngSubmit)="verifyToken()">
+    <vc-text-input
+      inputType="password"
+      placeholder="LBL_INPUT.PLACEHOLDER.VERIFICATION_CODE"
+      [control]="verificationForm.get('token')"
+      class="block__form__input"
+    ></vc-text-input>
+    <vc-button
+      class="block__form__button"
+      text="LBL_AUTHORIZATION.VERIFY"
+      [disabled]="!verificationForm.valid()"
+      inputType="submit"></vc-button>
+  </form>
+</ng-template>

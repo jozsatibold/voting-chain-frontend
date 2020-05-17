@@ -1,4 +1,5 @@
 import { AfterViewChecked, Component, OnDestroy, OnInit } from "@angular/core";
+import {UserSandbox} from "@global/sandboxes";
 
 @Component({
   selector: "vc-home",
@@ -6,9 +7,11 @@ import { AfterViewChecked, Component, OnDestroy, OnInit } from "@angular/core";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewChecked {
-  constructor() {}
+  constructor(private userSandbox: UserSandbox) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userSandbox.setLoginStatus(true);
+  }
 
   ngAfterViewChecked() {}
 

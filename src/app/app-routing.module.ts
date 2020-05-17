@@ -5,6 +5,7 @@ import {AuthGuard} from "../modules/global/guards";
 import {LoginComponent} from "./containers/login/login.component";
 import {RegistrationComponent} from "./containers/registration/registration.component";
 import {HomeComponent} from "./containers/home/home.component";
+import {PageNotFoundComponent} from "@shared/components/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

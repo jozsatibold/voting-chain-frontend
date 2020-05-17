@@ -7,9 +7,6 @@ $border-radius: 15px;
 $border-radius-small: 12px;
 
 // PADDINGS
-$padding-big: 2rem;
-$padding-big-mobile: 1.5rem;
-$padding-medium: 1rem;
-$padding-medium-mobile: 0.8rem;
-$padding-small: 0.5rem;
-$padding-small-mobile: 0.4rem;
+$padding-big: var(--padding-big);
+$padding-medium: var(--padding-medium);
+$padding-small: var(--padding-small);

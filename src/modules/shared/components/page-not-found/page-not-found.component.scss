@@ -6,17 +6,17 @@
   padding-top: 2rem;
   padding-bottom: 8rem;
 
-  .p404 {
+  &__p404 {
     font-size: 144px;
     opacity: 0.2;
   }
 
-  .oops {
+  &__oops {
     font-size: 48px;
     margin-top: -5rem;
   }
 
-  .description {
+  &__description {
     text-align: center;
   }
 }

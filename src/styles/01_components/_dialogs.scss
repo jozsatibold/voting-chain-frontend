@@ -6,7 +6,4 @@
   max-height: 90vh;
   background-color: $secondary-color;
   padding: $padding-big;
-  @include respond(mobile) {
-    padding: $padding-big-mobile;
-  }
 }

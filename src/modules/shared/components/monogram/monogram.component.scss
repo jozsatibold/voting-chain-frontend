@@ -8,10 +8,10 @@
 
   &.inactive {
     background-color: $secondary-color-hover !important;
-    color: $text-color;
+    color: $primary-color;
 
     span {
-      color: $text-color !important;
+      color: $primary-color !important;
     }
   }
 
@@ -23,7 +23,7 @@
   }
 
   span {
-    color: #FFFFFF;
+    color: $primary-color;
     width: 100%;
     height: 100%;
     display: flex;

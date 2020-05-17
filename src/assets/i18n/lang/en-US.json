@@ -5,14 +5,20 @@
     "LOGIN_SUBTITLE": "To keep connected with us please login with your personal info",
     "REGISTRATION": "SIGN UP",
     "REGISTRATION_TITLE": "Welcome, Friend!",
-    "REGISTRATION_SUBTITLE": "Enter your personal details and start a voting"
+    "REGISTRATION_SUBTITLE": "Enter your personal details and start a voting",
+    "REGISTRATION_SUCCESS": "Registration success",
+    "VERIFICATION": "Please check your email address. We sent an email with a token.",
+    "VERIFY": "VERIFY"
   },
   "LBL_LOGO": "VotingChain logo",
   "LBL_INPUT": {
     "ERROR": {
       "REQUIRED": "Required",
       "EMAIL": "Invalid email address",
-      "ADULT": "You must be at least 18 years old"
+      "ADULT": "You must be at least 18 years old",
+      "TEN_CHAR": "The verification code is 10 characters long",
+      "SIX_CHAR": "The access code can be 6 digits long",
+      "PIN_MATCH": "The pin codes you entered do not match"
     },
     "PLACEHOLDER": {
       "EMAIL": "Email address",
@@ -22,7 +28,8 @@
       "SEX": "Sex",
       "PIN_VERIFICATION": "Pin verification",
       "LANGUAGE": "Language",
-      "THEME": "Theme"
+      "THEME": "Theme",
+      "VERIFICATION_CODE": "Verification code"
     },
     "VALUE": {
       "MALE": "Male",
@@ -36,5 +43,7 @@
   "LBL_LANGUAGE": {
     "EN-US": "English",
     "HU": "Hungarian"
-  }
+  },
+  "LBL_404_DESCRIPTION": "You tried to navigate to a page that does not exist",
+  "LBL_PAGE_NOT_FOUND": "Page not found"
 }

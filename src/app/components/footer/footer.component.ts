@@ -47,10 +47,7 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.languageService.getCurrentLanguage().pipe(
       distinctUntilChanged(),
       takeUntil(this.destroy$)
-    ).subscribe((language) => {
-      console.log(language);
-      this.formControlLanguage.control.setValue(language);
-    });
+    ).subscribe((language) => this.formControlLanguage.control.setValue(language));
     this.uiService.darkMode$.pipe(
       distinctUntilChanged(),
       takeUntil(this.destroy$)

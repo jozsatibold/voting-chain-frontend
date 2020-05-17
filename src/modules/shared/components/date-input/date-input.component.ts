@@ -11,7 +11,8 @@ import {VCFormControl} from "@global/entities";
              [min]="min"
              [max]="max"
              [placeholder]="placeholder | translate"
-             [disabled]="disabled">
+             [disabled]="disabled"
+             autocomplete="off">
       <mat-error *ngIf="control.hasError()">
         {{control.getError() | translate}}
       </mat-error>

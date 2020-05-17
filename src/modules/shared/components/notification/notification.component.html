@@ -6,7 +6,7 @@
       'notification__container notification__container--' + notification.status
     "
   >
-    <mat-icon>notification.status</mat-icon>
+    <mat-icon>{{notification.icon}}</mat-icon>
     <span
       class="notification__container__message"
       [innerHTML]="notification.text | translate"

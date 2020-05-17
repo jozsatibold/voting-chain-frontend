@@ -1,25 +1,29 @@
-import {AfterViewChecked, ChangeDetectorRef, Component, OnDestroy, OnInit} from "@angular/core";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import {UiService} from "@global/services";
 import {Observable, Subject} from "rxjs";
+import {AuthSandbox, UserSandbox} from "@global/sandboxes";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: "vc-main",
   templateUrl: "./main.component.html",
   styleUrls: ["./main.component.scss"]
 })
-export class MainComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class MainComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject();
 
   showHeader$: Observable<boolean>;
-  constructor(private uiService: UiService) {
+  contentSize$: Observable<string>
+  constructor(private uiService: UiService,
+              private authSandbox: AuthSandbox,
+              private userSandbox: UserSandbox) {
   }
 
   ngOnInit(): void {
     this.uiService.initTheme();
     this.showHeader$ = this.uiService.showHeader$;
-  }
-
-  ngAfterViewChecked() {
+    this.authSandbox.init();
+    this.contentSize$ = this.uiService.showHeader$.pipe(map(visible => visible ? 'calc(100vh - 3rem)' : '100vh'))
   }
 
   ngOnDestroy(): void {

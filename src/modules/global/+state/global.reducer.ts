@@ -15,13 +15,10 @@ export const initialState: GlobalState = {
   user: null
 };
 
-export function globalReducer(
-  state = initialState,
-  action: GlobalActions
-): GlobalState {
+export function globalReducer(state = initialState, action: GlobalActions): GlobalState {
   switch (action.type) {
     case GlobalActionTypes.SetLoginStatus:
-      return { ...state, isAuthenticated: action.isAuthenticated };
+      return { ...state, isAuthenticated: action.isAuthenticated, user: null };
     case GlobalActionTypes.LoadUser:
       return { ...state, user: { ...state.user, ...action.user } };
     case GlobalActionTypes.ClearGlobalState:

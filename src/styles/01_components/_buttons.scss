@@ -19,9 +19,17 @@ button {
   justify-content: center;
   cursor: pointer;
   box-shadow: $box-shadow--mini;
-  transition: box-shadow 250ms;
+  opacity: 1;
+  transition: box-shadow 250ms, opacity 250ms;
 
-
+  &:disabled {
+    opacity: 0.5;
+    cursor: auto;
+    box-shadow: none !important;
+    &:hover {
+      box-shadow: none !important;
+    }
+  }
   &:hover {
     box-shadow: $box-shadow !important;
   }

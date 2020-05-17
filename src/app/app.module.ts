@@ -30,6 +30,7 @@ import {RegistrationComponent} from "./containers/registration/registration.comp
 import {HomeComponent} from "./containers/home/home.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {HeaderComponent} from "./components/header/header.component";
+import {SideNavComponent} from "./components/side-nav/side-nav.component";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -44,7 +45,7 @@ const containers = [
   HomeComponent
 ];
 
-const components = [FooterComponent, HeaderComponent];
+const components = [FooterComponent, HeaderComponent, SideNavComponent ];
 
 @NgModule({
   declarations: [...containers, ...components],

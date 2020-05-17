@@ -134,6 +134,10 @@
   margin-top: 1rem !important;
 }
 
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+
 .only-mobile {
   display: none;
   @include respond(mobile) {
@@ -147,4 +151,10 @@
   @include respond(mobile) {
     display: none !important;
   }
+}
+.svg-icon {
+  border-radius: 0.25rem;
+  width: 27px !important;
+  height: 27px !important;
+  padding: 0.1rem;
 }

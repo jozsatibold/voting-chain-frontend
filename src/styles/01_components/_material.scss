@@ -18,6 +18,9 @@
   .mat-calendar-table-header {
     color: $text-color !important;
   }
+  .mat-calendar-body-selected {
+    background-color: $scroll-color !important;
+  }
 }
 
 .mat-select-panel-wrap {

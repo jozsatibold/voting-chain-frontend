@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, throwError } from "rxjs";
-import { JwtHelperService } from "@auth0/angular-jwt";
-import { AuthService, ErrorHandlingService } from "../services";
-import { catchError, map, tap } from "rxjs/operators";
-import { UserSandbox } from "./user.sandbox";
-import { Router } from "@angular/router";
-import { HttpErrorResponse } from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {BehaviorSubject, Observable, throwError} from "rxjs";
+import {JwtHelperService} from "@auth0/angular-jwt";
+import {AuthService, ErrorHandlingService} from "../services";
+import {catchError, map, tap} from "rxjs/operators";
+import {UserSandbox} from "./user.sandbox";
+import {Router} from "@angular/router";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
@@ -14,23 +14,49 @@ export class AuthSandbox {
   public isRefreshingToken = false;
   public tokenSubject = new BehaviorSubject(null);
   helper = new JwtHelperService();
+  public _isActivated = new BehaviorSubject<boolean>(null);
+  isActivated$ = this._isActivated.asObservable();
 
   constructor(
     private errorHandlingService: ErrorHandlingService,
     private userSandbox: UserSandbox,
     private router: Router,
     private authService: AuthService
-  ) {}
+  ) {
+  }
 
-  login(email: string, password: string): Observable<any> {
-    return this.authService.login(email, password).pipe(
-      map((response: { user: any; token: string; refreshToken }) => {
-        this.setToken(response.token);
-        this.setRefreshToken((response as any).refreshToken);
-        return response.user;
+  init() {
+    const token = this.getToken();
+    this.verifyActivated(token);
+  }
+
+  login(email: string, pin: string): Observable<any> {
+    return this.authService.login(email, pin).pipe(
+      catchError(err => this.errorHandlingService.handleError(err))
+    );
+  }
+
+  loginWithToken(email: string, token: string): Observable<any> {
+    return this.authService.loginToken(email, token).pipe(
+      map((response: { authToken: string; refreshToken }) => {
+        this.setToken(response.authToken);
+        this.setRefreshToken(response.refreshToken);
+        this.verifyActivated(response.authToken);
+        return response;
       }),
       catchError(err => this.errorHandlingService.handleError(err))
     );
+  }
+
+  private verifyActivated(token): void {
+    if (token) {
+      const decoded = this.helper.decodeToken(token);
+      if (!!decoded) {
+        this._isActivated.next(decoded.activated);
+      }
+    } else {
+      this._isActivated.next(false);
+    }
   }
 
   logout() {
@@ -38,14 +64,14 @@ export class AuthSandbox {
       tap(() => {
         this.clearAuthCredentials();
         this.userSandbox.clearUser();
+        this._isActivated.next(false);
       }),
       catchError(err => this.errorHandlingService.handleError(err))
     );
   }
 
   loadUser(): Observable<any> {
-    return this.authService
-      .loadUser()
+    return this.authService.loadUser()
       .pipe(catchError(err => this.errorHandlingService.handleError(err)));
   }
 
@@ -90,8 +116,9 @@ export class AuthSandbox {
 
     return this.authService.refreshToken(this.getRefreshToken()).pipe(
       map(res => {
-        const token = (res as any).token;
+        const token = (res as any).authToken;
         this.setToken(token);
+        this.verifyActivated(token);
         this.tokenSubject.next(token);
         this.isRefreshingToken = false;
         return token;
@@ -106,4 +133,7 @@ export class AuthSandbox {
       })
     );
   }
+
+  createUser = (data) => this.authService.createUser(data)
+    .pipe(catchError(err => this.errorHandlingService.handleError(err)));
 }

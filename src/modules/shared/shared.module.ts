@@ -79,7 +79,7 @@ const materialComponents = [
   MatSidenavModule,
   MatProgressSpinnerModule,
   MatRippleModule,
-  PerfectScrollbarModule
+  PerfectScrollbarModule,
 ];
 
 @NgModule({

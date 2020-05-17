@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { BehaviorSubject, interval, Subject } from "rxjs";
-import {filter, map, takeUntil} from "rxjs/operators";
+import {filter, map, takeUntil, tap} from "rxjs/operators";
 import { NotificationService } from "@global/services";
 
 @Component({
@@ -20,7 +20,7 @@ export class NotificationComponent implements OnDestroy, OnInit {
   };
 
   notifications$ = new BehaviorSubject<
-    Array<{ text: string; status: string; until: number; index: number }>
+    Array<{ text: string; status: string; until: number; index: number, icon: string }>
   >([]);
 
   constructor(private notificationService: NotificationService) {}
@@ -40,7 +40,7 @@ export class NotificationComponent implements OnDestroy, OnInit {
             !!data.delay &&
             +data.delay > 1000
         ),
-        map(data => ({...data, status: status[data.status]})),
+        map(data => ({...data, icon: this.status[data.status]})),
         takeUntil(this.destroy$)
       )
       .subscribe(data => {
@@ -58,6 +58,7 @@ export class NotificationComponent implements OnDestroy, OnInit {
             text: this.changeText(data.text || "", data.status),
             status: data.status,
             index: this.notificationId,
+            icon: data.icon,
             until: new Date().getTime() + data.delay
           });
           ++this.notificationId;
@@ -88,9 +89,10 @@ export class NotificationComponent implements OnDestroy, OnInit {
   }
 
   changeText(text: string, status: string): string {
-    return status !== "danger" || text.includes("LBL_")
-      ? text
-      : "LBL_ERROR_GENERAL_TEXT";
+    return text;
+    // return status !== "danger" || text.includes("LBL_")
+    //   ? text
+    //   : "LBL_ERROR_GENERAL_TEXT";
   }
 
   remove(index) {

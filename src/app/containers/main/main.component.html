@@ -1,5 +1,4 @@
-<!--<vc-header *ngIf="showHeader$ | async"></vc-header>-->
-<section class="main__container">
-<router-outlet></router-outlet>
+<vc-header *ngIf="showHeader$ | async"></vc-header>
+<section class="main__container" [style.height]="contentSize$ | async">
+  <router-outlet></router-outlet>
 </section>
-<footer></footer>

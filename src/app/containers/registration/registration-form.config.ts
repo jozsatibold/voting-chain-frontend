@@ -1,7 +1,8 @@
 import {Validators} from "@angular/forms";
 import customValidator from "@global/custom-functions/validation.functions";
+import {VCFormControlBuilder} from "@global/entities";
 
-export const registrationFormConfig = [
+export const registrationFormConfig: Array<VCFormControlBuilder> = [
   {
     name: 'email',
     value: '',
@@ -55,6 +56,12 @@ export const registrationFormConfig = [
     validators: [{
       error: 'LBL_INPUT.ERROR.REQUIRED',
       validator: Validators.required
+    }, {
+      error: 'LBL_INPUT.ERROR.SIX_CHAR',
+      validator: [Validators.minLength(6), 'minlength']
+    }, {
+      error: 'LBL_INPUT.ERROR.SIX_CHAR',
+      validator: [Validators.maxLength(6), 'maxlength']
     }]
   },
   {
@@ -63,6 +70,12 @@ export const registrationFormConfig = [
     validators: [{
       error: 'LBL_INPUT.ERROR.REQUIRED',
       validator: Validators.required
+    }, {
+      error: 'LBL_INPUT.ERROR.SIX_CHAR',
+      validator: [Validators.minLength(6), 'minlength']
+    }, {
+      error: 'LBL_INPUT.ERROR.SIX_CHAR',
+      validator: [Validators.maxLength(6), 'maxlength']
     }]
   }
 ];

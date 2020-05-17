@@ -21,6 +21,17 @@ html {
     left: 0;
     transition: color 250ms, background-color 250ms, border 250ms;
 
+    @include respond(desktop) {
+      --padding-big: 2rem;
+      --padding-medium: 1rem;
+      --padding-small: 0.5rem;
+    }
+    @include respond(mobile) {
+      --padding-big: 1.5rem;
+      --padding-medium: 0.8rem;
+      --padding-small: 0.4rem;
+    }
+
     * {
       box-sizing: border-box;
       transition: color 250ms, background-color 250ms, border 250ms;

@@ -30,35 +30,12 @@ export class UserSandbox {
     this.store.dispatch(new ClearGlobalState());
   }
 
-
-
-  //*
-  setUserImage(image: Blob) {
-    const reader = new FileReader();
-    reader.addEventListener(
-      "load",
-      () => {
-        this.userImage.next(reader.result.toString());
-      },
-      false
-    );
-
-    if (image) {
-      reader.readAsDataURL(image);
-    }
-  }
-
   setLoginStatus(val: boolean): void {
     this.store.dispatch(new SetLoginStatus(val));
   }
 
   isUserAuthenticated(): Observable<boolean> {
     return this.store.select(GlobalSelectors.isUserAuthenticated);
-  }
-
-  loadUser(user: User) {
-    this.store.dispatch(new LoadUser(user));
-    this.setLoginStatus(true);
   }
 
   getUserId = (): Observable<number> =>
@@ -70,8 +47,5 @@ export class UserSandbox {
     this.store.dispatch(new ReloadUser());
   }
 
-  //
-  // createUser = data => this.userService.createUser(data);
-  //
   // updateUser = data => this.userService.updateUser(data);
 }

@@ -23,6 +23,14 @@ export class VCForm {
   form(): FormGroup {
     return this._form;
   }
+
+  valid(): boolean {
+    return this._form && this._form.valid;
+  }
+
+  value(): any {
+    return this._form ? this._form.value : null;
+  }
 }
 
 export interface VCFormControlBuilder {
@@ -32,7 +40,7 @@ export interface VCFormControlBuilder {
 }
 
 export interface VcFormValidator {
-  validator: ValidatorFn;
+  validator: ValidatorFn | [ValidatorFn, string];
   error: string;
 }
 

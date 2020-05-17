@@ -5,24 +5,31 @@
     "LOGIN_SUBTITLE": "Ha kapcsolatba akar lépni velünk, kérjük, jelentkezzen be a személyes adataival",
     "REGISTRATION": "REGISZTRÁCIÓ",
     "REGISTRATION_TITLE": "Üdvözöllek barátom!",
-    "REGISTRATION_SUBTITLE": "Írja be személyes adatait, és kezdje el a szavazást"
+    "REGISTRATION_SUBTITLE": "Írja be személyes adatait, és kezdje el a szavazást",
+    "REGISTRATION_SUCCESS": "Sikeres registráció",
+    "VERIFICATION": "Kérjük, ellenőrizze e-mail címét. Küldtünk egy e-mailt egy tokennel.",
+    "VERIFY": "Ellenőrzés"
   },
   "LBL_LOGO": "VotingChain logo",
   "LBL_INPUT": {
     "ERROR": {
       "REQUIRED": "Kötelező",
       "EMAIL": "Érvénytelen email cím",
-      "ADULT": "Legalább 18 évesnek kell lennie"
+      "ADULT": "Legalább 18 évesnek kell lennie",
+      "TEN_CHAR": "Az ellenőrző kód 10 karakter hosszúságu",
+      "SIX_CHAR": "A belépési kód 6 számjegyü lehet",
+      "PIN_MATCH": "A megadott belépési kódok nem egyeznek"
     },
     "PLACEHOLDER": {
       "EMAIL": "Email cím",
-      "PIN": "Pin kód",
+      "PIN": "Belépési kód",
       "NAME": "Teljes név",
       "BIRTH_DATE": "Születési dárum",
       "SEX": "Nem",
-      "PIN_VERIFICATION": "Pin ellenőrzés",
+      "PIN_VERIFICATION": "Belépési kód ellenőrzés",
       "LANGUAGE": "Nyelv",
-      "THEME": "Téma"
+      "THEME": "Téma",
+      "VERIFICATION_CODE": "Ellenőrző kód"
     },
     "VALUE": {
       "MALE": "Férfi",
@@ -36,5 +43,7 @@
   "LBL_LANGUAGE": {
     "EN-US": "Angol",
     "HU": "Magyar"
-  }
+  },
+  "LBL_404_DESCRIPTION": "Egy olyan oldalra probáltál navigálni ami nem létezik",
+  "LBL_PAGE_NOT_FOUND": "Az oldal nem található"
 }
