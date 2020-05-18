@@ -14,4 +14,12 @@ export class UserService {
     private errorHandler: ErrorHandlingService
   ) {
   }
+
+  updateUser(user: User): Observable<any> {
+    return this.http.put('/api/users', user).pipe(catchError(err => this.errorHandler.handleError(err)))
+  }
+
+  updatePassword(object: {oldPin: string, newPin: string}): Observable<any> {
+    return this.http.put('/api/users/password', object).pipe(catchError(err => this.errorHandler.handleError(err)))
+  }
 }

@@ -31,3 +31,14 @@
 .mat-select-arrow {
   color: $text-color !important;
 }
+
+.mat-drawer-content {
+  color: $text-color !important;
+  background-color: $secondary-color !important;
+}
+
+.mat-select-value-text {
+  span {
+    font-weight: $font-medium;
+  }
+}

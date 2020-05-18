@@ -1,4 +1,25 @@
 <mat-sidenav-container class="home">
-  <vc-side-nav class="home__menu"></vc-side-nav>
-  <mat-sidenav-content class="home__content"></mat-sidenav-content>
+  <mat-sidenav #vcSidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
+               [fixedInViewport]="!mobileQuery.matches" [fixedTopGap]="mobileQuery.matches ? 52 : 0"
+               class="home__menu">
+    <mat-nav-list>
+      <perfect-scrollbar>
+        <div class="home__menu__container">
+          <div>
+            <div class="home__menu__container__item"
+                 *ngFor="let item of menuItems"
+                 [routerLink]="item.route"
+                 (click)="actionEvent(item.action)" matRipple>
+              <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
+              <h5 *ngIf="item.label">{{item.label | translate}}</h5>
+            </div>
+          </div>
+          <vc-footer></vc-footer>
+        </div>
+      </perfect-scrollbar>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="home__content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>

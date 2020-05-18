@@ -20,6 +20,7 @@ button {
   cursor: pointer;
   box-shadow: $box-shadow--mini;
   opacity: 1;
+  text-transform: uppercase;
   transition: box-shadow 250ms, opacity 250ms;
 
   &:disabled {

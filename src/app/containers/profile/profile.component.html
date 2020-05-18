@@ -1,0 +1,51 @@
+<div class="block">
+  <h3 class="block__title">{{'LBL_MENU.PROFILE' | translate}}</h3>
+  <form [formGroup]="profileForm.form()"
+        class="block__form" (ngSubmit)="updateUser()">
+    <vc-text-input
+      inputType="email"
+      placeholder="LBL_INPUT.PLACEHOLDER.EMAIL"
+      [control]="profileForm.get('email')"
+      class="block__form__input"
+    ></vc-text-input>
+    <vc-text-input
+      placeholder="LBL_INPUT.PLACEHOLDER.NAME"
+      [control]="profileForm.get('name')"
+      class="block__form__input"
+    ></vc-text-input>
+    <vc-date-input
+      placeholder="LBL_INPUT.PLACEHOLDER.BIRTH_DATE"
+      [max]="maxDate"
+      [min]="minDate"
+      [control]="profileForm.get('birthDate')"
+      class="block__form__input"
+    ></vc-date-input>
+    <vc-select-input
+      placeholder="LBL_INPUT.PLACEHOLDER.SEX"
+      [control]="profileForm.get('sex')"
+      [options]="sexOptions"
+      class="block__form__input"
+    ></vc-select-input>
+    <vc-button class="block__form__button" text="LBL_BTN.UPDATE" inputType="submit"></vc-button>
+  </form>
+
+  <h4 class="block__subtitle">{{'LBL_SUBTITLE.UPDATE_PASSWORD' | translate}}</h4>
+  <form [formGroup]="passwordForm.form()"
+        class="block__form" (ngSubmit)="updatePassword()">
+    <vc-text-input
+      inputType="password"
+      placeholder="LBL_INPUT.PLACEHOLDER.OLD_PIN"
+      [control]="passwordForm.get('oldPin')"
+      class="block__form__input"
+      disableAutocomplete
+    ></vc-text-input>
+    <vc-text-input
+      inputType="password"
+      placeholder="LBL_INPUT.PLACEHOLDER.NEW_PIN"
+      [control]="passwordForm.get('newPin')"
+      class="block__form__input"
+      disableAutocomplete
+    ></vc-text-input>
+    <vc-button class="block__form__button" text="LBL_BTN.UPDATE" inputType="submit"></vc-button>
+  </form>
+</div>

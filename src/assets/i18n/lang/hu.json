@@ -29,7 +29,9 @@
       "PIN_VERIFICATION": "Belépési kód ellenőrzés",
       "LANGUAGE": "Nyelv",
       "THEME": "Téma",
-      "VERIFICATION_CODE": "Ellenőrző kód"
+      "VERIFICATION_CODE": "Ellenőrző kód",
+      "OLD_PIN": "Jelenlegi belépési kód",
+      "NEW_PIN": "Új belépési kód"
     },
     "VALUE": {
       "MALE": "Férfi",
@@ -45,5 +47,22 @@
     "HU": "Magyar"
   },
   "LBL_404_DESCRIPTION": "Egy olyan oldalra probáltál navigálni ami nem létezik",
-  "LBL_PAGE_NOT_FOUND": "Az oldal nem található"
+  "LBL_PAGE_NOT_FOUND": "Az oldal nem található",
+  "LBL_MENU": {
+    "VOTES": "SZAVAZÁSOK",
+    "GROUPS": "CSOPORTOK",
+    "PROFILE": "ADATLAP",
+    "SIGN_OUT": "KIJELENTKEZÉS"
+  },
+  "LBL_BTN": {
+    "SAVE": "Mentés",
+    "UPDATE": "Frissítés"
+  },
+  "LBL_ACTION": {
+    "UPDATED": "A frissítés sikeresen megtörtént",
+    "PASSWORD_UPDATED": "A belépési kód frissítése sikeresen megtörtént"
+  },
+  "LBL_SUBTITLE": {
+    "UPDATE_PASSWORD": "Állítson be új jelszót"
+  }
 }

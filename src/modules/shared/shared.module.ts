@@ -34,6 +34,7 @@ import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.
 import {TextInputComponent} from "./components/text-input/text-input.component";
 import {DateInputComponent} from "./components/date-input/date-input.component";
 import {SelectInputComponent} from "./components/select-input/select-input.component";
+import {MatListModule} from "@angular/material/list";
 
 // pipes
 const pipes = [PicturePipe, ReadeableTimePipe];
@@ -79,6 +80,7 @@ const materialComponents = [
   MatSidenavModule,
   MatProgressSpinnerModule,
   MatRippleModule,
+  MatListModule,
   PerfectScrollbarModule,
 ];
 

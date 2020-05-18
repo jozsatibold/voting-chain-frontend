@@ -47,5 +47,7 @@ export class UserSandbox {
     this.store.dispatch(new ReloadUser());
   }
 
-  // updateUser = data => this.userService.updateUser(data);
+  updateUser = data => this.userService.updateUser(data);
+
+  updatePassword = object => this.userService.updatePassword(object);
 }

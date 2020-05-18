@@ -1,4 +1,4 @@
-import {Component, Input} from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 import {ButtonInputType, ButtonType} from "@global/enums/general.enum";
 
 @Component({
@@ -12,7 +12,8 @@ import {ButtonInputType, ButtonType} from "@global/enums/general.enum";
       [class.vc-btn--primary]="type === 'primary'"
       [class.vc-btn--secondary]="type === 'secondary'">
       {{ text | translate }}
-    </button>`
+    </button>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
   @Input() type: ButtonType = "primary";

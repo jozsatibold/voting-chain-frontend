@@ -5,7 +5,7 @@ import {VCFormControl} from "@global/entities";
 @Component({
   selector: "vc-text-input",
   template: `
-    <mat-form-field class="vc-text-input">
+    <mat-form-field *ngIf="control" class="vc-text-input">
       <mat-label *ngIf="label">{{label | translate}}</mat-label>
       <input matInput [formControl]="control.control"
              [type]="inputType"

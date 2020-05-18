@@ -6,6 +6,7 @@ import {LoginComponent} from "./containers/login/login.component";
 import {RegistrationComponent} from "./containers/registration/registration.component";
 import {HomeComponent} from "./containers/home/home.component";
 import {PageNotFoundComponent} from "@shared/components/page-not-found/page-not-found.component";
+import {ProfileComponent} from "./containers/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -28,7 +29,13 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent
+      }
+    ]
   },
   {path: '**', component: PageNotFoundComponent}
 ];

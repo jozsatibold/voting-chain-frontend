@@ -29,7 +29,9 @@
       "PIN_VERIFICATION": "Pin verification",
       "LANGUAGE": "Language",
       "THEME": "Theme",
-      "VERIFICATION_CODE": "Verification code"
+      "VERIFICATION_CODE": "Verification code",
+      "OLD_PIN": "Current pin code",
+      "NEW_PIN": "New pin code"
     },
     "VALUE": {
       "MALE": "Male",
@@ -45,5 +47,22 @@
     "HU": "Hungarian"
   },
   "LBL_404_DESCRIPTION": "You tried to navigate to a page that does not exist",
-  "LBL_PAGE_NOT_FOUND": "Page not found"
+  "LBL_PAGE_NOT_FOUND": "Page not found",
+  "LBL_MENU": {
+    "VOTES": "VOTES",
+    "GROUPS": "GROUPS",
+    "PROFILE": "PROFILE",
+    "SIGN_OUT": "SIGN OUT"
+  },
+  "LBL_BTN": {
+    "SAVE": "Save",
+    "UPDATE": "Update"
+  },
+  "LBL_ACTION": {
+    "UPDATED": "Update completed successfully",
+    "PASSWORD_UPDATED": "Pin code updated successfully"
+  },
+  "LBL_SUBTITLE": {
+    "UPDATE_PASSWORD": "Set a new password"
+  }
 }

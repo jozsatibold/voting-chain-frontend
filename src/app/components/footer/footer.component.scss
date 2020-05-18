@@ -9,5 +9,9 @@
   &__input {
     margin:0 $padding-small;
     width: 10rem;
+
+    @include respond(mobile) {
+      width: 8rem;
+    }
   }
 }

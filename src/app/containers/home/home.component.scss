@@ -1,7 +1,51 @@
 @import "00_base/base";
-:host {
+
+:host, .home {
   width: 100%;
   height: 100%;
   display: block;
   position: relative;
+}
+
+.home {
+  &__menu {
+    height: 100%;
+    width: 400px;
+    max-width: 90vw;
+    display: block;
+    background-color: $primary-color;
+
+    mat-nav-list, perfect-scrollbar {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    ::ng-deep perfect-scrollbar .ps-content {
+      height: 100%;
+    }
+
+    &__container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      padding: 5rem 2rem;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__item {
+        cursor: pointer;
+        display: flex;
+        width: 100%;
+        padding: $padding-medium;
+
+        mat-icon, h5 {
+          color: #FFFFFF !important;
+        }
+        h5 {
+          margin: 0.25rem 1.5rem;
+        }
+      }
+    }
+  }
 }

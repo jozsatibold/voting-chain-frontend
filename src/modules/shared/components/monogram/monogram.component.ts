@@ -1,10 +1,11 @@
-import {Component, Input} from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 import {User} from "@global/entities";
 
 @Component({
   selector: "vc-monogram",
   templateUrl: "./monogram.component.html",
-  styleUrls: ["./monogram.component.scss"]
+  styleUrls: ["./monogram.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MonogramComponent {
   size = 2;

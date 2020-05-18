@@ -1,8 +1,9 @@
-import { Component } from "@angular/core";
+import {ChangeDetectionStrategy, Component} from "@angular/core";
 
 @Component({
   selector: "vc-page-not-found",
   templateUrl: "./page-not-found.component.html",
-  styleUrls: ["./page-not-found.component.scss"]
+  styleUrls: ["./page-not-found.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageNotFoundComponent {}
