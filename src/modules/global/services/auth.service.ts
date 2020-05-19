@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   logout(refreshToken) {
-    return this.http.post("/api/auth/logout", { refreshToken });
+    return this.http.post("/api/auth/logout/admin", { refreshToken }, {responseType: "text"});
   }
 
   loadUser(): Observable<any> {

@@ -16,10 +16,14 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<any> {
-    return this.http.put('/api/users', user).pipe(catchError(err => this.errorHandler.handleError(err)))
+    return this.http.put('/api/users', user, {responseType: "text"}).pipe(
+      catchError(err => this.errorHandler.handleError(err))
+    );
   }
 
   updatePassword(object: {oldPin: string, newPin: string}): Observable<any> {
-    return this.http.put('/api/users/password', object).pipe(catchError(err => this.errorHandler.handleError(err)))
+    return this.http.put('/api/users/password', object, {responseType: "text"}).pipe(
+      catchError(err => this.errorHandler.handleError(err))
+    );
   }
 }

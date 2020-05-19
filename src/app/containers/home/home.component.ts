@@ -2,7 +2,7 @@ import {AfterViewChecked, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewC
 import {AuthSandbox, UserSandbox} from "@global/sandboxes";
 import {MatSidenav} from "@angular/material/sidenav";
 import {Subject} from "rxjs";
-import {takeUntil} from "rxjs/operators";
+import {catchError, takeUntil} from "rxjs/operators";
 import {UiService} from "@global/services";
 import {MediaMatcher} from "@angular/cdk/layout";
 import {menuItems} from "./home-menu.config";
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   actionEvent(action: string): void {
     if (action === 'sign_out') {
-      this.authSandbox.logout().subscribe(() => this.router.navigate(['authorization', 'login']))
+      this.authSandbox.logout().subscribe()
     }
   }
 }

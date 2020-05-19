@@ -4,15 +4,12 @@ import { GlobalStateRef } from "../+state/global.reducer";
 import { GlobalSelectors } from "../+state/global.selectors";
 import {
   ClearGlobalState,
-  LoadUser,
   ReloadUser,
   SetLoginStatus,
 } from "../+state/global.actions";
 import { Store } from "@ngrx/store";
 import { UserService } from "../services/user.service";
 import {User} from "../entities";
-
-// TODO: create better flow for the * signed methods
 
 @Injectable({
   providedIn: "root"

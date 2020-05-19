@@ -62,17 +62,24 @@ export class AuthSandbox {
   logout() {
     return this.authService.logout(localStorage.getItem("refresh-token")).pipe(
       tap(() => {
-        this.clearAuthCredentials();
-        this.userSandbox.clearUser();
-        this._isActivated.next(false);
+        this.clearUser();
       }),
-      catchError(err => this.errorHandlingService.handleError(err))
+      catchError(err => {
+        const text = this.errorHandlingService.handleErrorText(err);
+        console.log(text)
+        if (text === 'User has already been logged out') {
+          this.clearUser();
+        }
+        return Promise.reject(err);
+      })
     );
   }
 
-  loadUser(): Observable<any> {
-    return this.authService.loadUser()
-      .pipe(catchError(err => this.errorHandlingService.handleError(err)));
+  private clearUser() {
+    this.clearAuthCredentials();
+    this.userSandbox.clearUser();
+    this._isActivated.next(false);
+    this.router.navigate(['authorization', 'login'])
   }
 
   setToken(token: string) {
