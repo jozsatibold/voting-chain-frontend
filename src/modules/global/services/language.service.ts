@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, of, ReplaySubject } from "rxjs";
+import {BehaviorSubject, Observable, of, ReplaySubject} from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { TranslateService } from "@ngx-translate/core";
 import { distinctUntilChanged } from "rxjs/operators";
@@ -9,6 +9,7 @@ import { distinctUntilChanged } from "rxjs/operators";
 })
 export class LanguageService {
   private currentLanguage = new ReplaySubject<string>();
+  private _languageLoaded = new BehaviorSubject<boolean>(false);
 
   constructor(
     private http: HttpClient,
@@ -24,6 +25,8 @@ export class LanguageService {
   setLanguageList(languages: Array<string>) {
     this.translateService.addLangs(languages); // Add languages to Translate Service
   }
+
+  isLanguageLoaded = (): Observable<boolean> => this._languageLoaded.asObservable();
 
   getCurrentLanguage = (): Observable<string> =>
     this.currentLanguage.asObservable().pipe(distinctUntilChanged());
@@ -56,6 +59,7 @@ export class LanguageService {
         }
         // Save the active language into the local storage
         localStorage.setItem("language", activeLanguage);
+        this._languageLoaded.next(true);
         this.setCurrentLanguage(activeLanguage);
       });
   }

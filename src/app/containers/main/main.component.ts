@@ -13,17 +13,17 @@ export class MainComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject();
 
   showHeader$: Observable<boolean>;
-  contentSize$: Observable<string>
+  contentSize$: Observable<string>;
   constructor(private uiService: UiService,
               private authSandbox: AuthSandbox,
               private userSandbox: UserSandbox) {
   }
 
   ngOnInit(): void {
-    this.uiService.initTheme();
     this.showHeader$ = this.uiService.showHeader$;
+    this.contentSize$ = this.uiService.showHeader$.pipe(map(visible => visible ? 'calc(100vh - 3.25rem)' : '100vh'));
+    this.uiService.initTheme();
     this.authSandbox.init();
-    this.contentSize$ = this.uiService.showHeader$.pipe(map(visible => visible ? 'calc(100vh - 3.25rem)' : '100vh'))
   }
 
   ngOnDestroy(): void {

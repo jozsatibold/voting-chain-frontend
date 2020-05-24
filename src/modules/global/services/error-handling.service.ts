@@ -23,7 +23,6 @@ export class ErrorHandlingService {
 
       return messageError;
     } catch (err) {
-      console.log(error);
       return "LBL_ERROR_GENERAL_TEXT";
     }
   }

@@ -22,7 +22,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { LoadingWrapperComponent } from "./components/loading-wrapper/loading-wrapper.component";
 import { PicturePipe } from "./pipes/picture.pipe";
 import { MonogramComponent } from "./components/monogram/monogram.component";
-import { ReadeableTimePipe } from "./pipes/readeable-time.pipe";
+import { TimeFormatPipe } from "./pipes/time-format.pipe";
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 import { DialogService } from "./services/dialog.service";
 import { DialogWrapperComponent } from "./components/dialog-wrapper/dialog-wrapper.component";
@@ -35,9 +35,12 @@ import {TextInputComponent} from "./components/text-input/text-input.component";
 import {DateInputComponent} from "./components/date-input/date-input.component";
 import {SelectInputComponent} from "./components/select-input/select-input.component";
 import {MatListModule} from "@angular/material/list";
+import {ListElementComponent} from "@shared/components/list-element/list-element.component";
+import {MatTabsModule} from "@angular/material/tabs";
+import {TextAreaComponent} from "@shared/components/text-area/text-area.component";
 
 // pipes
-const pipes = [PicturePipe, ReadeableTimePipe];
+const pipes = [PicturePipe, TimeFormatPipe];
 
 // entries
 const entries = [];
@@ -57,7 +60,9 @@ const components = [
   PageNotFoundComponent,
   TextInputComponent,
   DateInputComponent,
-  SelectInputComponent
+  SelectInputComponent,
+  ListElementComponent,
+  TextAreaComponent
 ];
 
 // material components
@@ -82,6 +87,7 @@ const materialComponents = [
   MatRippleModule,
   MatListModule,
   PerfectScrollbarModule,
+  MatTabsModule
 ];
 
 @NgModule({

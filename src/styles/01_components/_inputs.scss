@@ -5,7 +5,10 @@
   padding: 0.5rem 2rem;
   border-radius: 32px;
 
-  input {
+  textarea {
+    min-height: 5rem;
+  }
+  input, textarea {
     color: $text-color !important;
     font-weight: $font-medium !important;
     font-size: $h5-font-size !important;

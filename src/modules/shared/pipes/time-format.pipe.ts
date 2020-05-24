@@ -2,10 +2,10 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 
 @Pipe({
-  name: "readableTime",
+  name: "timeFormat",
   pure: false
 })
-export class ReadeableTimePipe implements PipeTransform {
+export class TimeFormatPipe implements PipeTransform {
   constructor(private translate: TranslateService) {}
 
   transform(value: string | Date): string {

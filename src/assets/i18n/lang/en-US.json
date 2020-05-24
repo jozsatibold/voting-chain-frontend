@@ -31,7 +31,10 @@
       "THEME": "Theme",
       "VERIFICATION_CODE": "Verification code",
       "OLD_PIN": "Current pin code",
-      "NEW_PIN": "New pin code"
+      "NEW_PIN": "New pin code",
+      "GROUP_NAME": "Group name",
+      "DESCRIPTION": "Description",
+      "GROUP_TYPE": "Group type"
     },
     "VALUE": {
       "MALE": "Male",
@@ -56,13 +59,36 @@
   },
   "LBL_BTN": {
     "SAVE": "Save",
-    "UPDATE": "Update"
+    "UPDATE": "Update",
+    "EDIT": "Edit",
+    "DELETE": "Delete"
   },
   "LBL_ACTION": {
     "UPDATED": "Update completed successfully",
-    "PASSWORD_UPDATED": "Pin code updated successfully"
+    "PASSWORD_UPDATED": "Pin code updated successfully",
+    "SAVE": "Save completed successfully",
+    "DELETE": "Delete completed successfully"
   },
   "LBL_SUBTITLE": {
     "UPDATE_PASSWORD": "Set a new password"
+  },
+  "LBL_PAGE": {
+    "PROFILE": "Profile",
+    "LOGIN": "Login",
+    "REGISTRATION": "Registration",
+    "GROUPS": "Groups",
+    "VOTES": "Votes"
+  },
+  "LBL_VOTES": {
+    "UPCOMING": "Upcoming votes",
+    "PAST": "Expired votes"
+  },
+  "LBL_GROUPS": {
+    "NO_UPCOMING": "No upcoming votes",
+    "NO_PAST": "No finished votes",
+    "MEMBERS": "Group members",
+    "EDIT": "Edit group",
+    "NEW": "New group",
+    "CREATE_NEW": "Create new group"
   }
 }

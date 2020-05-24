@@ -16,6 +16,7 @@ export class AuthSandbox {
   helper = new JwtHelperService();
   public _isActivated = new BehaviorSubject<boolean>(null);
   isActivated$ = this._isActivated.asObservable();
+  token$ = this.tokenSubject.asObservable();
 
   constructor(
     private errorHandlingService: ErrorHandlingService,
@@ -66,7 +67,6 @@ export class AuthSandbox {
       }),
       catchError(err => {
         const text = this.errorHandlingService.handleErrorText(err);
-        console.log(text)
         if (text === 'User has already been logged out') {
           this.clearUser();
         }
@@ -79,10 +79,11 @@ export class AuthSandbox {
     this.clearAuthCredentials();
     this.userSandbox.clearUser();
     this._isActivated.next(false);
-    this.router.navigate(['authorization', 'login'])
+    this.router.navigate(['authorization', 'login']);
   }
 
   setToken(token: string) {
+    this.tokenSubject.next(token);
     localStorage.setItem("auth-token", token);
   }
 
@@ -96,7 +97,12 @@ export class AuthSandbox {
   }
 
   public getToken(): string {
-    return localStorage.getItem("auth-token");
+    const token = localStorage.getItem("auth-token");
+    if (this.tokenSubject.getValue() === null) {
+      this.tokenSubject.next(token);
+    }
+    return token;
+
   }
 
   public getRefreshToken(): string {
@@ -104,7 +110,11 @@ export class AuthSandbox {
   }
 
   public isTokenExpired(token: string) {
-    return token ? this.helper.isTokenExpired(token) : true;
+    const expired = token ? this.helper.isTokenExpired(token) : true;
+    if (expired) {
+      this.refreshToken();
+    }
+    return expired;
   }
 
   public hasToken() {
@@ -117,20 +127,19 @@ export class AuthSandbox {
     this.isRefreshingToken = false;
   }
 
-  public refreshToken(): Observable<any> {
+  public refreshToken() {
     this.isRefreshingToken = true;
     this.tokenSubject.next(null);
-
-    return this.authService.refreshToken(this.getRefreshToken()).pipe(
+    this.authService.refreshToken(this.getRefreshToken()).pipe(
       map(res => {
         const token = (res as any).authToken;
         this.setToken(token);
         this.verifyActivated(token);
-        this.tokenSubject.next(token);
         this.isRefreshingToken = false;
         return token;
       }),
       catchError((err: HttpErrorResponse) => {
+        console.log(err);
         if (err.error && err.status === 401) {
           this.clearAuthCredentials();
           this.router.navigate(["authorization"]);
@@ -138,7 +147,7 @@ export class AuthSandbox {
         }
         return throwError("Cant refresh token");
       })
-    );
+    ).subscribe();
   }
 
   createUser = (data) => this.authService.createUser(data)

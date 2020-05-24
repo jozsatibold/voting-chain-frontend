@@ -31,7 +31,10 @@
       "THEME": "Téma",
       "VERIFICATION_CODE": "Ellenőrző kód",
       "OLD_PIN": "Jelenlegi belépési kód",
-      "NEW_PIN": "Új belépési kód"
+      "NEW_PIN": "Új belépési kód",
+      "GROUP_NAME": "Csoport név",
+      "DESCRIPTION": "Leírás",
+      "GROUP_TYPE": "Csoport típus"
     },
     "VALUE": {
       "MALE": "Férfi",
@@ -56,13 +59,36 @@
   },
   "LBL_BTN": {
     "SAVE": "Mentés",
-    "UPDATE": "Frissítés"
+    "UPDATE": "Frissítés",
+    "EDIT": "Modósítás",
+    "DELETE": "Törlés"
   },
   "LBL_ACTION": {
     "UPDATED": "A frissítés sikeresen megtörtént",
-    "PASSWORD_UPDATED": "A belépési kód frissítése sikeresen megtörtént"
+    "PASSWORD_UPDATED": "A belépési kód frissítése sikeresen megtörtént",
+    "SAVE": "A mentés sikeresen megtörtént",
+    "DELETE": "A törlés sikeresen megtörtént"
   },
   "LBL_SUBTITLE": {
     "UPDATE_PASSWORD": "Állítson be új jelszót"
+  },
+  "LBL_PAGE": {
+    "PROFILE": "Profile",
+    "LOGIN": "Belépés",
+    "REGISTRATION": "Regisztráció",
+    "GROUPS": "Csoportok",
+    "VOTES": "Szavazások"
+  },
+  "LBL_VOTES": {
+    "UPCOMING": "Közelgő szavazások",
+    "PAST": "Lejárt szavazások"
+  },
+  "LBL_GROUPS": {
+    "NO_UPCOMING": "Nincs közelgő szavazás",
+    "NO_PAST": "Nincs befejezett szavazás",
+    "MEMBERS": "Csoport tagok",
+    "EDIT": "Csoport szerkesztése",
+    "NEW": "Új csoport",
+    "CREATE_NEW": "Új csoport létrehozása"
   }
 }

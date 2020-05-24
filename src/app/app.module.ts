@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
-import {AppRoutingModule} from "./app-routing.module";
+import {AppRouting} from "./app.routing";
 import {AppComponent} from "./app.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
@@ -52,7 +52,7 @@ const components = [FooterComponent, HeaderComponent];
   declarations: [...containers, ...components],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRouting,
     BrowserAnimationsModule,
     SharedModule.forRoot(),
     GlobalModule,

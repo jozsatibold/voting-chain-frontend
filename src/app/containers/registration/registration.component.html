@@ -42,7 +42,7 @@
     ></vc-text-input>
     <span *ngIf="isPinInvalid$ | async" class="mt-1 mb-1 text-bold text-center text-error">{{'LBL_INPUT.ERROR.PIN_MATCH' | translate}}</span>
     <vc-button
-      [disabled]="!registrationForm.valid() || (isPinInvalid$ | async)"
+      [disabled]="!registrationForm.valid() || (isPinInvalid$ | async) || (isLoading$ | async)"
       class="block__form__button"
       text="LBL_AUTHORIZATION.REGISTRATION"
       inputType="submit"></vc-button>

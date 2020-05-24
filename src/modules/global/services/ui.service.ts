@@ -1,6 +1,9 @@
 import {Injectable, Renderer2, RendererFactory2} from "@angular/core";
 import {Theme, themes} from "../enums";
 import {BehaviorSubject, Subject} from "rxjs";
+import {Title} from "@angular/platform-browser";
+import {TranslateService} from "@ngx-translate/core";
+import {LanguageService} from "@global/services/language.service";
 
 @Injectable({
   providedIn: "root"
@@ -16,12 +19,19 @@ export class UiService {
   showHeader$ = this._showHeader$.asObservable();
   toggleMenu$ = this._toggleMenu$.asObservable();
 
+  private isLoaded = false;
+
   toggleMenu() {
     this._toggleMenu$.next();
   }
 
-  constructor(rendererFactory: RendererFactory2) {
+  constructor(rendererFactory: RendererFactory2,
+              private title: Title,
+              private translateService: TranslateService,
+              private languageService: LanguageService
+  ) {
     this.render = rendererFactory.createRenderer(null, null);
+    this.languageService.isLanguageLoaded().subscribe(isLoaded => this.isLoaded = isLoaded);
   }
 
   initTheme() {
@@ -50,4 +60,11 @@ export class UiService {
     this._showHeader$.next(show);
   }
 
+  setTitle(title: string): void {
+    if (!!title && this.isLoaded) {
+      this.title.setTitle(`${this.translateService.instant(title)} | VotingChain`);
+    } else {
+      this.title.setTitle('VotingChain');
+    }
+  }
 }

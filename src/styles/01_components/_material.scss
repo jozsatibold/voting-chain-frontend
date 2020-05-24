@@ -42,3 +42,22 @@
     font-weight: $font-medium;
   }
 }
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: $primary-color;
+}
+
+.mat-tab-label {
+  opacity: 1 !important;
+
+  .mat-tab-label-content {
+    color: $text-color !important;
+    font-size: $h4-font-size !important;
+    font-weight: $font-medium !important;
+  }
+}
+.mat-ink-bar {
+  background-color: $text-color !important;
+  height: 4px !important;
+  border-radius: 4px !important;
+}

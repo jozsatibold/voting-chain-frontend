@@ -1,0 +1,24 @@
+@import "00_base/base";
+
+.list-element {
+  display: flex;
+  padding: $padding-big;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow--mini;
+  transition: box-shadow 250ms;
+  background-color: $primary-color;
+  margin: 1rem 0;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+
+  &__content {
+    margin-left: 1rem;
+
+    &__title, &__category {
+      margin: 0.3rem 0;
+    }
+  }
+}

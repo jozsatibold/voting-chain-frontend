@@ -3,17 +3,19 @@ import { AuthService } from "../services";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import {
   ClearGlobalState,
-  GlobalActionTypes,
+  GlobalActionTypes, LoadTypes,
   LoadUser,
   SetLoginStatus
 } from "./global.actions";
 import { map, switchMap } from "rxjs/operators";
 import { of } from "rxjs/internal/observable/of";
+import {TypeService} from "@global/services/type.service";
 
 @Injectable()
 export class GlobalEffects {
   constructor(
     private auth: AuthService,
+    private typeService: TypeService,
     private actions$: Actions
   ) {}
 
@@ -35,5 +37,12 @@ export class GlobalEffects {
       this.auth.loadUser().pipe(map(response => response["user"]))
     ),
     map(user => (user ? new LoadUser(user) : new ClearGlobalState()))
+  );
+
+  @Effect()
+  FetchTypes = this.actions$.pipe(
+    ofType(GlobalActionTypes.FetchType),
+    switchMap(() => this.typeService.loadTypes()),
+    map(types => new LoadTypes(types))
   );
 }

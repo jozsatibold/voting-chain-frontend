@@ -19,9 +19,8 @@ export class UserSandbox {
 
   constructor(
     private store: Store<GlobalStateRef>,
-    private userService: UserService,
+    private userService: UserService
   ) {}
-
 
   clearUser() {
     this.store.dispatch(new ClearGlobalState());

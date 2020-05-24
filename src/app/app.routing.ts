@@ -34,7 +34,13 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
-      }
+      },
+      {
+        path: 'groups',
+        loadChildren: () => import('../modules/groups/group.module').then(module => module.GroupsModule),
+        canActivate: [AuthGuard]
+      },
+      {path: '**', component: PageNotFoundComponent}
     ]
   },
   {path: '**', component: PageNotFoundComponent}
@@ -44,5 +50,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
+export class AppRouting {
 }

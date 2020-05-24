@@ -1,0 +1,40 @@
+<vc-loading-wrapper class="group-detail" [condition]="group$ | async">
+  <article *ngIf="group$ | async as group">
+    <div class="group-detail__header">
+      <vc-monogram
+        size="5"
+        class="group-detail__header__image"
+        [color]="group.type.color"
+        [picture]="'data:image/jpeg;base64,' + group.type.logo"></vc-monogram>
+      <div class="group-detail__header__text">
+        <h3 class="group-detail__header__text__title">{{group.name}}</h3>
+        <h4 class="group-detail__header__text__category">{{group.type.name}}</h4>
+      </div>
+      <vc-button class="group-detail__header__btn"
+                 [text]="'LBL_BTN.EDIT'"
+                 [routerLink]="'/groups/' + group.id + '/edit'"></vc-button>
+    </div>
+    <mat-tab-group class="group-detail__votes" mat-align-tabs="center">
+      <mat-tab [label]="'LBL_VOTES.UPCOMING' | translate">
+        <div class="p-15">
+          <vc-list-element *ngFor="let vote of group.voting.upcoming" [data]="vote" [size]="3"></vc-list-element>
+          <h5 class="placeholder" *ngIf="!group.voting.upcoming.length">{{'LBL_GROUPS.NO_UPCOMING' | translate}}</h5>
+        </div>
+      </mat-tab>
+      <mat-tab [label]="'LBL_VOTES.PAST' | translate">
+        <div class="p-15">
+          <vc-list-element *ngFor="let vote of group.voting.finished" [data]="vote" [size]="3"
+                           [routerLink]="'/votes/' + vote.id"></vc-list-element>
+          <h5 class="placeholder" *ngIf="!group.voting.finished.length">{{'LBL_GROUPS.NO_PAST' | translate}}</h5>
+        </div>
+      </mat-tab>
+      <mat-tab [label]="'LBL_GROUPS.MEMBERS' | translate">
+        <ng-template matTabContent>
+          <div class="p-15">
+            <vc-group-members></vc-group-members>
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </article>
+</vc-loading-wrapper>

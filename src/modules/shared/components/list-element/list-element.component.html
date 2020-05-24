@@ -1,0 +1,12 @@
+<div class="list-element">
+  <vc-monogram *ngIf="data.type"
+               class="list-element__logo"
+               [size]="size"
+               [picture]="'data:image/jpeg;base64,' + data.type.logo"
+               [color]="data.type.color"></vc-monogram>
+  <div class="list-element__content">
+    <h3 *ngIf="data.name || data.title" class="list-element__content__title">{{data.name || data.title}}</h3>
+    <h4 *ngIf="data.type && data.type.name" class="list-element__content__category">{{data.type.name}}</h4>
+    <div *ngIf="data.date">{{data.date | timeFormat}}</div>
+  </div>
+</div>

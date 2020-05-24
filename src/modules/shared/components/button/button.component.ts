@@ -10,7 +10,8 @@ import {ButtonInputType, ButtonType} from "@global/enums/general.enum";
       [type]="inputType"
       [disabled]="disabled"
       [class.vc-btn--primary]="type === 'primary'"
-      [class.vc-btn--secondary]="type === 'secondary'">
+      [class.vc-btn--secondary]="type === 'secondary'"
+      [class.vc-btn--danger]="type === 'danger'">
       {{ text | translate }}
     </button>`,
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -10,7 +10,7 @@ import {LanguageService} from "@global/services";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit, OnDestroy {
-  constructor(private languageService: LanguageService,) {}
+  constructor(private languageService: LanguageService) {}
 
   @HostListener('window:beforeunload')
   beforeunloadHandler() {

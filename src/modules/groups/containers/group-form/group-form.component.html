@@ -1,0 +1,30 @@
+<vc-loading-wrapper class="group-edit" [condition]="!(isLoading$ | async)">
+  <article class="block" *ngIf="!(isLoading$ | async)">
+    <h3 class="block__title">{{(isNew ? 'LBL_GROUPS.NEW' : 'LBL_GROUPS.EDIT') | translate}}</h3>
+    <form class="block__form" [formGroup]="groupForm.form()"
+          (ngSubmit)="save()">
+      <vc-text-input
+        placeholder="LBL_INPUT.PLACEHOLDER.GROUP_NAME"
+        [control]="groupForm.get('name')"
+        class="block__form__input"
+      ></vc-text-input>
+      <vc-text-area
+        placeholder="LBL_INPUT.PLACEHOLDER.DESCRIPTION"
+        [control]="groupForm.get('description')"
+        class="block__form__input"
+      ></vc-text-area>
+      <vc-select-input class="block__form__input"
+                       placeholder="LBL_INPUT.PLACEHOLDER.GROUP_TYPE"
+                       [control]="groupForm.get('type')"
+      [options]="typeOptions$ | async"></vc-select-input>
+      <vc-button [text]="isNew ? 'LBL_BTN.SAVE': 'LBL_BTN.UPDATE'" [disabled]="!groupForm.valid() || isSubmitted" inputType="submit"
+                 class="block__form__button"></vc-button>
+
+      <vc-button *ngIf="!isNew" text="LBL_BTN.DELETE"
+                 [disabled]="isSubmitted"
+                 (click)="delete()"
+                 class="block__form__button mt-3" type="danger"></vc-button>
+    </form>
+
+  </article>
+</vc-loading-wrapper>

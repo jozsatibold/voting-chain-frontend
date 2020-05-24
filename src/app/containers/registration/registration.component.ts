@@ -22,6 +22,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     value: 'LBL_INPUT.VALUE.FEMALE'
   }];
   isPinInvalid$ = new BehaviorSubject<boolean>(false);
+  isLoading$ = new BehaviorSubject<boolean>(false);
 
   private destroy$ = new Subject();
 
@@ -57,9 +58,13 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       this.isPinInvalid$.next(true);
       return;
     }
-    this.authSandbox.createUser({... _.omit (data, ['pinVerification']), birthDate: new Date(data.birthDate).getTime()}).subscribe(() => {
+    this.isLoading$.next(true);
+    this.authSandbox.createUser({..._.omit (data, ['pinVerification']), birthDate: new Date(data.birthDate).getTime()})
+      .subscribe(() => {
       this.notificationService.showNotification('LBL_AUTHORIZATION.REGISTRATION_SUCCESS', 'success');
       this.router.navigate(['']);
-    });
+      this.isLoading$.next(false);
+    },
+        () => this.isLoading$.next(false));
   }
 }

@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import {BehaviorSubject, combineLatest, of, Subject} from "rxjs";
 import {UiService} from "@global/services";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter, map} from "rxjs/operators";
+import {filter, map, takeUntil, tap} from "rxjs/operators";
 
 @Component({
   selector: "vc-authorization",
@@ -28,6 +28,9 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
     const path = this.route.firstChild.routeConfig.path;
     const index = ['registration', 'login' ].indexOf(path);
     this.isLogin$.next(index !== 0);
+    this.isLogin$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(isLogin => !isLogin ? 'LBL_PAGE.REGISTRATION' : 'LBL_PAGE.LOGIN');
   }
 
   ngOnDestroy(): void {

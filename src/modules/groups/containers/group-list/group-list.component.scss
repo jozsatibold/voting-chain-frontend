@@ -1,0 +1,22 @@
+@import "00_base/base";
+
+.new-group {
+  padding: $padding-small;
+  width: 100%;
+  display: block;
+  background-color: $primary-color;
+  text-align: center;
+  cursor: pointer;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow--mini;
+  transition: box-shadow 250ms;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+
+  h3 {
+    width: 100%;
+    text-align: center;
+  }
+}

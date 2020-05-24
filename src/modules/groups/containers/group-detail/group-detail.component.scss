@@ -1,0 +1,57 @@
+@import "00_base/base";
+
+.group-detail {
+  width: 100%;
+  display: block;
+  height: auto;
+  &__header {
+    padding: $padding-big;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+
+    @include respond(mobile) {
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+
+      &__image {
+        margin: auto !important;
+      }
+      &__text {
+        margin: 1rem 0 !important;
+      }
+
+      &__text__title, &__text__category {
+        margin: 0.6rem auto !important;
+      }
+      &__btn {
+        margin: 1rem auto !important;
+      }
+    }
+    &__btn {
+      margin: 2rem auto;
+      display: block;
+    }
+    &__image {
+      display: block;
+      width: 5rem;
+      height: 5rem;
+      margin: 0;
+    }
+    &__text {
+      display: flex;
+      flex-direction: column;
+      margin-left: 2rem;
+
+      &__title, &__category {
+        margin: 0.6rem 0;
+      }
+    }
+  }
+
+  &__votes {
+    width: 100%;
+    height: auto;
+  }
+}

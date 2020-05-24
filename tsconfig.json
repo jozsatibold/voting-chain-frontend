@@ -16,7 +16,8 @@
     "lib": ["es2018", "dom"],
     "paths": {
       "@shared/*": ["src/modules/shared/*"],
-      "@global/*": ["src/modules/global/*"]
+      "@global/*": ["src/modules/global/*"],
+      "@groups/*": ["src/modules/groups/*"]
     }
   },
   "angularCompilerOptions": {

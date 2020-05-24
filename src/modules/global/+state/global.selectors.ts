@@ -17,8 +17,14 @@ const getUserId = createSelector(
   state => (state.user ? state.user.id : null)
 );
 
+const getTypes = createSelector(
+  getGlobalState,
+  state => state.types
+);
+
 export const GlobalSelectors = {
   getUser,
   getUserId,
-  isUserAuthenticated
+  isUserAuthenticated,
+  getTypes
 };

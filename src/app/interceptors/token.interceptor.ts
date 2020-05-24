@@ -32,22 +32,12 @@ export class TokenInterceptor implements HttpInterceptor {
       return next.handle(req);
     }
 
-    if (this.authSandbox.isRefreshingToken) {
+    if (this.authSandbox.isRefreshingToken || this.authSandbox.isTokenExpired(token)) {
       return this.authSandbox.tokenSubject.pipe(
         filter(t => t != null),
         take(1),
         switchMap(jwtToken => {
           return next.handle(this.setAuthorizationHeader(req, jwtToken));
-        })
-      );
-    }
-
-    if (this.authSandbox.isTokenExpired(token)) {
-      return this.authSandbox.refreshToken().pipe(
-        mergeMap(() => {
-          return next.handle(
-            this.setAuthorizationHeader(req, this.authSandbox.getToken())
-          );
         })
       );
     }

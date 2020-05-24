@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {UserSandbox} from "@global/sandboxes";
-import {FormService, NotificationService} from "@global/services";
+import {FormService, NotificationService, UiService} from "@global/services";
 import {SelectOption, VCForm} from "@global/entities";
 import {registrationFormConfig} from "../registration/registration-form.config";
 import * as _ from 'lodash';
@@ -29,12 +29,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(private userSandbox: UserSandbox,
               private formService: FormService,
+              private uiService: UiService,
               private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
     this.profileForm = this.formService.buildForm(profileFormConfig);
     this.passwordForm = this.formService.buildForm(passwordFormConfig);
+    this.uiService.setTitle('LBL_PAGE.PROFILE');
     this.userSandbox.getUser()
       .pipe(
         filter(isUser => !!isUser),
@@ -59,7 +61,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     const value = this.profileForm.value();
     this.userSandbox.updateUser({...value, birthDate: new Date(value.birthDate).getTime()})
       .subscribe(() => {
-        console.log('Updated');
         this.userSandbox.reloadUser();
         this.notificationService.showNotification('LBL_ACTION.UPDATED', "success");
       });

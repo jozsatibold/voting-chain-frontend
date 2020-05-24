@@ -10,11 +10,12 @@ import {Router} from "@angular/router";
   selector: "vc-login",
   templateUrl: "./login.component.html"
 })
-export class LoginComponent implements OnInit, OnDestroy, AfterViewChecked {
+export class LoginComponent implements OnInit {
 
   loginForm: VCForm;
   verificationForm: VCForm;
   isLoginSuccess$ = new BehaviorSubject<boolean>(false);
+  isLoading$ = new BehaviorSubject<boolean>(false);
 
   constructor(private formService: FormService,
               private authSandbox: AuthSandbox,
@@ -65,22 +66,26 @@ export class LoginComponent implements OnInit, OnDestroy, AfterViewChecked {
       return;
     }
     const data = this.loginForm.value();
-    this.authSandbox.login(data.email, data.pin).subscribe(() => this.isLoginSuccess$.next(true))
+    this.isLoading$.next(true);
+    this.authSandbox.login(data.email, data.pin).subscribe(
+      () => {
+        this.isLoginSuccess$.next(true);
+        this.isLoading$.next(false);
+      },
+      () => this.isLoading$.next(false));
   }
 
   verifyToken() {
     if (!this.loginForm.valid() || !this.verificationForm.valid()) {
       return;
     }
+    this.isLoading$.next(true);
     this.authSandbox.loginWithToken(this.loginForm.value().email, this.verificationForm.value().token)
       .subscribe(() => {
+        this.isLoading$.next(false);
         this.userSandbox.setLoginStatus(true);
         this.router.navigate(['']);
-      })
-  }
-  ngAfterViewChecked() {
-  }
-
-  ngOnDestroy(): void {
+      },
+        () => this.isLoading$.next(false));
   }
 }

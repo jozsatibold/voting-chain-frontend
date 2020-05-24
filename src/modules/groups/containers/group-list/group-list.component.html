@@ -1,0 +1,8 @@
+<vc-loading-wrapper [condition]="!!(groups$ | async)">
+  <div class="new-group" routerLink="/groups/new">
+    <h3>{{"LBL_GROUPS.CREATE_NEW" | translate}}</h3>
+  </div>
+  <vc-list-element *ngFor="let group of groups$ | async"
+                   [data]="group"
+                   (click)="openGroup(group.id)"></vc-list-element>
+</vc-loading-wrapper>
