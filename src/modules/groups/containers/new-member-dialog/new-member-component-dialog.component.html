@@ -1,0 +1,8 @@
+<vc-dialog-wrapper title="LBL_BTN.ADD_MEMBER">
+  <vc-text-input placeholder="LBL_INPUT.PLACEHOLDER.SEARCH_MEMBER" [control]="searchControl"
+                 disableAutocomplete></vc-text-input>
+  <perfect-scrollbar class="member-container">
+    <vc-group-member *ngFor="let member of result$ | async" [member]="member" (click)="addMember(member)"
+                     [deletable]="false"></vc-group-member>
+  </perfect-scrollbar>
+</vc-dialog-wrapper>

@@ -11,7 +11,7 @@ export class PicturePipe implements PipeTransform {
       validSrc = true;
     }
     if (validSrc) {
-      if (!(/^(http:\/\/)|(https:\/\/)(www.)?.*/.test(src))) {
+      if (!/^(http:\/\/)|(https:\/\/)(www.)?.*/.test(src) && !src.startsWith('data:image/')) {
         return src;
       }
       return this.sanitizer.bypassSecurityTrustUrl(src);

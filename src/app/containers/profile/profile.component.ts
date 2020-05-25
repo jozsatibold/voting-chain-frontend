@@ -2,10 +2,8 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import {UserSandbox} from "@global/sandboxes";
 import {FormService, NotificationService, UiService} from "@global/services";
 import {SelectOption, VCForm} from "@global/entities";
-import {registrationFormConfig} from "../registration/registration-form.config";
-import * as _ from 'lodash';
-import {filter, map, switchMap, takeUntil} from "rxjs/operators";
-import {EMPTY, Subject} from "rxjs";
+import {filter, map, takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 import {passwordFormConfig, profileFormConfig} from "./profile-form.config";
 
 @Component({
@@ -44,7 +42,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
           name: user.name,
           email: user.email,
           birthDate: new Date(user.birthDate),
-          sex: user.sex,
+          sex: user.sex
         })),
         takeUntil(this.destroy$))
       .subscribe(user => this.profileForm.form().setValue(user));

@@ -1,0 +1,4 @@
+<vc-loading-wrapper [condition]="!!members">
+  <vc-group-member *ngFor="let member of members" [member]="member" (delete)="delete.emit(member)"></vc-group-member>
+  <h5 class="placeholder" *ngIf="!members || !members.length">{{'LBL_GROUPS.NO_MEMBERS' | translate}}</h5>
+</vc-loading-wrapper>

@@ -44,4 +44,12 @@ export class GroupSandbox {
   create = (group) => this.groupService.createGroup(group);
 
   delete = (groupId) => this.groupService.deleteGroup(groupId);
+
+  groupMembers = (groupId) => this.groupService.groupMembers(groupId);
+
+  deleteGroupMember = (groupId, memberId) => this.groupService.deleteGroupMember(groupId, memberId);
+
+  searchMember = (groupId, search) => this.groupService.searchMember(groupId, search);
+
+  addMember  = (groupId, memberId) => this.groupService.addMember(groupId, memberId);
 }

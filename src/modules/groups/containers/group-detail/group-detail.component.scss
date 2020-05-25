@@ -30,8 +30,13 @@
       }
     }
     &__btn {
-      margin: 2rem auto;
+      margin: 0 auto;
       display: block;
+
+      vc-button {
+        margin: 0.5rem 0;
+        display: block;
+      }
     }
     &__image {
       display: block;

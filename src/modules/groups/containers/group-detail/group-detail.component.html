@@ -10,9 +10,11 @@
         <h3 class="group-detail__header__text__title">{{group.name}}</h3>
         <h4 class="group-detail__header__text__category">{{group.type.name}}</h4>
       </div>
-      <vc-button class="group-detail__header__btn"
-                 [text]="'LBL_BTN.EDIT'"
+      <div class="group-detail__header__btn">
+      <vc-button [text]="'LBL_BTN.EDIT'"
                  [routerLink]="'/groups/' + group.id + '/edit'"></vc-button>
+        <vc-button [text]="'LBL_BTN.ADD_MEMBER'" (click)="openNewMemberDialog()"></vc-button>
+      </div>
     </div>
     <mat-tab-group class="group-detail__votes" mat-align-tabs="center">
       <mat-tab [label]="'LBL_VOTES.UPCOMING' | translate">
@@ -31,7 +33,7 @@
       <mat-tab [label]="'LBL_GROUPS.MEMBERS' | translate">
         <ng-template matTabContent>
           <div class="p-15">
-            <vc-group-members></vc-group-members>
+            <vc-group-members [members]="members$ | async" (delete)="deleteMember($event)"></vc-group-members>
           </div>
         </ng-template>
       </mat-tab>

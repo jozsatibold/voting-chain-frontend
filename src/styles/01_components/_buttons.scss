@@ -71,6 +71,8 @@ button {
   &--icon {
     width: 32px;
     height: 32px;
+    padding: 0.25rem;
+    box-sizing: content-box;
     background: $secondary-color;
     box-shadow: $box-shadow--mini;
 

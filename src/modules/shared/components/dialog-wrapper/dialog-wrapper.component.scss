@@ -8,12 +8,12 @@
 
 .dialog {
   position: relative;
-  padding: 40px 50px 30px;
+  padding: $padding-big;
   max-height: 90vh;
   overflow: hidden;
   display: block;
-  border-radius: 20px;
-  background-color: $secondary-color-hover;
+  border-radius: $border-radius;
+  background-color: $secondary-color;
   box-shadow: $box-shadow;
   box-sizing: border-box;
   width: 100%;
@@ -42,7 +42,7 @@
     display: block;
     width: 100%;
 
-    h3 {
+    h2 {
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
@@ -60,7 +60,7 @@
 
   &__footer {
     text-align: center;
-    padding-top: 1rem;
+    padding-top: $padding-small;
     width: 100%;
     box-sizing: border-box;
     display: flex;

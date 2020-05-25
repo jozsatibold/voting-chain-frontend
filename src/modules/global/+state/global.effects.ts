@@ -33,9 +33,7 @@ export class GlobalEffects {
   @Effect()
   ReloadUser = this.actions$.pipe(
     ofType(GlobalActionTypes.ReloadUser),
-    switchMap(() =>
-      this.auth.loadUser().pipe(map(response => response["user"]))
-    ),
+    switchMap(() => this.auth.loadUser()),
     map(user => (user ? new LoadUser(user) : new ClearGlobalState()))
   );
 

@@ -34,7 +34,8 @@
       "NEW_PIN": "Új belépési kód",
       "GROUP_NAME": "Csoport név",
       "DESCRIPTION": "Leírás",
-      "GROUP_TYPE": "Csoport típus"
+      "GROUP_TYPE": "Csoport típus",
+      "SEARCH_MEMBER": "Keress egy új tagot"
     },
     "VALUE": {
       "MALE": "Férfi",
@@ -61,13 +62,16 @@
     "SAVE": "Mentés",
     "UPDATE": "Frissítés",
     "EDIT": "Modósítás",
-    "DELETE": "Törlés"
+    "DELETE": "Törlés",
+    "ADD_MEMBER": "Új csoporttag",
+    "INVITE": "Invite"
   },
   "LBL_ACTION": {
     "UPDATED": "A frissítés sikeresen megtörtént",
     "PASSWORD_UPDATED": "A belépési kód frissítése sikeresen megtörtént",
     "SAVE": "A mentés sikeresen megtörtént",
-    "DELETE": "A törlés sikeresen megtörtént"
+    "DELETE": "A törlés sikeresen megtörtént",
+    "INVITED": "A felhasználót sikeresen meghívtuk"
   },
   "LBL_SUBTITLE": {
     "UPDATE_PASSWORD": "Állítson be új jelszót"
@@ -86,9 +90,11 @@
   "LBL_GROUPS": {
     "NO_UPCOMING": "Nincs közelgő szavazás",
     "NO_PAST": "Nincs befejezett szavazás",
+    "NO_MEMBERS": "Nincsenek tagok",
     "MEMBERS": "Csoport tagok",
     "EDIT": "Csoport szerkesztése",
     "NEW": "Új csoport",
-    "CREATE_NEW": "Új csoport létrehozása"
+    "CREATE_NEW": "Új csoport létrehozása",
+    "REMOVE_MEMBER": "Csoporttag eltávolítása"
   }
 }

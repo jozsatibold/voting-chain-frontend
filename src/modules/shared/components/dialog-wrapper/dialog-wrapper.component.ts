@@ -5,19 +5,14 @@ import {
   Input,
   Output
 } from "@angular/core";
-import {ButtonAlign} from "../../../global/enums";
+import {ButtonAlign} from "@global/enums";
 
 @Component({
   selector: "vc-dialog-wrapper",
   template: `
     <div class="dialog">
       <div class="dialog__header">
-        <h3 mat-dialog-title class="d-inline mt-1 mb-0">
-          <span>{{ title | translate: { value: titleValue } }}</span>
-          <span *ngIf="subTitle">
-            | <b>{{ subTitle | translate: { value: subTitleValue } }}</b></span
-          >
-        </h3>
+        <h2 mat-dialog-title>{{ title | translate }}</h2>
         <div
           (click)="closeDialog()"
           class="dialog__header__close svg-icon"
@@ -50,9 +45,6 @@ import {ButtonAlign} from "../../../global/enums";
 })
 export class DialogWrapperComponent {
   @Input() title;
-  @Input() titleValue;
-  @Input() subTitle;
-  @Input() subTitleValue;
   @Input() buttonText: string;
   @Input() buttonAlign: ButtonAlign = "center";
   @Input() buttonDisabled = false;
@@ -70,6 +62,7 @@ export class DialogWrapperComponent {
   closeDialog() {
     this.close.emit();
   }
+
   onConfirm(value: boolean) {
     this.buttonEvent.emit(value);
   }

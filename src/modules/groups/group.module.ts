@@ -13,19 +13,25 @@ import {GroupsComponent} from "./containers/groups/groups.component";
 import {GroupListComponent} from "./containers/group-list/group-list.component";
 import {GroupComponent} from "@groups/containers/group/group.component";
 import {GroupDetailComponent} from "@groups/containers/group-detail/group-detail.component";
-import {GroupMembersComponent} from "@groups/containers/group-members/group-members.component";
+import {GroupMembersComponent} from "@groups/components/group-members/group-members.component";
 import {GroupFormComponent} from "@groups/containers/group-form/group-form.component";
+import {NewMemberComponentDialog} from "@groups/containers/new-member-dialog/new-member-component-dialog.component";
+import {GroupMemberComponent} from "@groups/components/group-member/group-member.component";
 
 const containers = [
   GroupsComponent,
   GroupListComponent,
   GroupComponent,
   GroupDetailComponent,
-  GroupMembersComponent,
   GroupFormComponent
 ];
 
-const components = [];
+const components = [
+  GroupMembersComponent,
+  GroupMemberComponent
+];
+
+const entries = [NewMemberComponentDialog];
 
 const modules = [
   CommonModule,
@@ -40,7 +46,7 @@ const modules = [
 
 @NgModule({
   imports: [...modules],
-  declarations: [...components, ...containers]
+  declarations: [...components, ...containers, ...entries],
 })
 export class GroupsModule {
 }

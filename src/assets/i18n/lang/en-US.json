@@ -34,7 +34,8 @@
       "NEW_PIN": "New pin code",
       "GROUP_NAME": "Group name",
       "DESCRIPTION": "Description",
-      "GROUP_TYPE": "Group type"
+      "GROUP_TYPE": "Group type",
+      "SEARCH_MEMBER": "Find a new member"
     },
     "VALUE": {
       "MALE": "Male",
@@ -61,13 +62,16 @@
     "SAVE": "Save",
     "UPDATE": "Update",
     "EDIT": "Edit",
-    "DELETE": "Delete"
+    "DELETE": "Delete",
+    "ADD_MEMBER": "Add member",
+    "INVITE": "Meghívás"
   },
   "LBL_ACTION": {
     "UPDATED": "Update completed successfully",
     "PASSWORD_UPDATED": "Pin code updated successfully",
     "SAVE": "Save completed successfully",
-    "DELETE": "Delete completed successfully"
+    "DELETE": "Delete completed successfully",
+    "INVITED": "The user has been successfully invited"
   },
   "LBL_SUBTITLE": {
     "UPDATE_PASSWORD": "Set a new password"
@@ -86,9 +90,11 @@
   "LBL_GROUPS": {
     "NO_UPCOMING": "No upcoming votes",
     "NO_PAST": "No finished votes",
+    "NO_MEMBERS": "No members",
     "MEMBERS": "Group members",
     "EDIT": "Edit group",
     "NEW": "New group",
-    "CREATE_NEW": "Create new group"
+    "CREATE_NEW": "Create new group",
+    "REMOVE_MEMBER": "Remove member"
   }
 }

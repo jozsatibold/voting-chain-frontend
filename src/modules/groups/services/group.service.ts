@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {ErrorHandlingService} from "@global/services";
 import {Group} from "@global/entities";
+import {GroupMember} from "@groups/entities/group-users.entity";
 
 @Injectable({
   providedIn: "root"
@@ -31,13 +32,33 @@ export class GroupService {
       .pipe(catchError(err => this.errorHandler.handleError(err)));
   }
 
-  createGroup(group: Group): Observable<{id: number}> {
+  createGroup(group: Group): Observable<{ id: number }> {
     return this.http.post('/api/groups/admin', group)
       .pipe(catchError(err => this.errorHandler.handleError(err)));
   }
 
-  deleteGroup(groupId: number): Observable<{id: number}> {
+  groupMembers(groupId: number): Observable<Array<GroupMember>> {
+    return this.http.get(`/api/groups/admin/${groupId}/members`)
+      .pipe(catchError(err => this.errorHandler.handleError(err)));
+  }
+
+  deleteGroup(groupId: number): Observable<{ id: number }> {
     return this.http.delete(`/api/groups/admin/${groupId}`, {responseType: "text"})
+      .pipe(catchError(err => this.errorHandler.handleError(err)));
+  }
+
+  deleteGroupMember(groupId: number, memberId: number): Observable<{ id: number }> {
+    return this.http.delete(`/api/groups/admin/member/${groupId}/${memberId}`, {responseType: "text"})
+      .pipe(catchError(err => this.errorHandler.handleError(err)));
+  }
+
+  searchMember(groupId: number, search: string): Observable<Array<GroupMember>> {
+    return this.http.get(`/api/groups/admin/${groupId}`, {params: {search}})
+      .pipe(catchError(err => this.errorHandler.handleError(err)));
+  }
+
+  addMember(groupId: number, userId: number): Observable<Array<GroupMember>> {
+    return this.http.post(`/api/groups/admin/member`, {userId, groupId}, {responseType: "text"})
       .pipe(catchError(err => this.errorHandler.handleError(err)));
   }
 }

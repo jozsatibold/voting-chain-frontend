@@ -61,3 +61,17 @@
   height: 4px !important;
   border-radius: 4px !important;
 }
+
+.mat-tooltip {
+  border-radius: $border-radius !important;
+  font-weight: $font-medium !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.mat-dialog-container {
+  transform: none;
+  background-color: transparent;
+  box-shadow: none;
+  overflow: auto;
+  padding: 0;
+}

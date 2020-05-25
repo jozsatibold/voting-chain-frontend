@@ -1,0 +1,11 @@
+<div class="member">
+  <vc-monogram class="member__monogram" [size]="3" [data]="member"></vc-monogram>
+  <div class="member__text">
+    <h4 class="member__text__name">{{member.name}}</h4>
+    <h4 class="member__text__email">{{member.email}}</h4>
+  </div>
+  <vc-button-icon *ngIf="deletable" class="member__delete"
+                  icon="delete"
+                  (click)="delete.emit(member)"
+                  [matTooltip]="'LBL_GROUPS.REMOVE_MEMBER' | translate"></vc-button-icon>
+</div>
