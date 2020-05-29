@@ -1,9 +1,10 @@
 import {Injectable, Renderer2, RendererFactory2} from "@angular/core";
 import {Theme, themes} from "../enums";
-import {BehaviorSubject, Subject} from "rxjs";
+import {BehaviorSubject, combineLatest, Observable, Subject} from "rxjs";
 import {Title} from "@angular/platform-browser";
 import {TranslateService} from "@ngx-translate/core";
 import {LanguageService} from "@global/services/language.service";
+import {filter} from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -19,7 +20,8 @@ export class UiService {
   showHeader$ = this._showHeader$.asObservable();
   toggleMenu$ = this._toggleMenu$.asObservable();
 
-  private isLoaded = false;
+  private title$ = new BehaviorSubject<string>('');
+  private languageIsLoaded$: Observable<boolean>;
 
   toggleMenu() {
     this._toggleMenu$.next();
@@ -31,7 +33,21 @@ export class UiService {
               private languageService: LanguageService
   ) {
     this.render = rendererFactory.createRenderer(null, null);
-    this.languageService.isLanguageLoaded().subscribe(isLoaded => this.isLoaded = isLoaded);
+    this.languageIsLoaded$ = this.languageService.isLanguageLoaded();
+    combineLatest([this.languageIsLoaded$, this.title$])
+      .pipe(filter(([isLoaded, _]) => isLoaded))
+      .subscribe(([_, title]) => {
+        if (!!title) {
+          const translatedTitle = this.translateService.instant(title);
+          if (translatedTitle.startsWith('LBL_')) {
+            this.title.setTitle('VotingChain');
+          } else {
+            this.title.setTitle(`${translatedTitle} | VotingChain`);
+          }
+        } else {
+          this.title.setTitle('VotingChain');
+        }
+      });
   }
 
   initTheme() {
@@ -61,10 +77,6 @@ export class UiService {
   }
 
   setTitle(title: string): void {
-    if (!!title && this.isLoaded) {
-      this.title.setTitle(`${this.translateService.instant(title)} | VotingChain`);
-    } else {
-      this.title.setTitle('VotingChain');
-    }
+    this.title$.next(title);
   }
 }

@@ -1,5 +1,12 @@
 @import "00_base/base";
 
+:host {
+  max-width: 600px;
+  display: block;
+  margin: auto;
+  padding: 2rem 0;
+}
+
 .group-edit {
   width: 100%;
   display: block;

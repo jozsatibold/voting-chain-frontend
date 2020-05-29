@@ -17,7 +17,8 @@
     "paths": {
       "@shared/*": ["src/modules/shared/*"],
       "@global/*": ["src/modules/global/*"],
-      "@groups/*": ["src/modules/groups/*"]
+      "@groups/*": ["src/modules/groups/*"],
+      "@vote/*": ["src/modules/vote/*"]
     }
   },
   "angularCompilerOptions": {

@@ -9,7 +9,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "@shared/shared.module";
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {GroupsComponent} from "./containers/groups/groups.component";
 import {GroupListComponent} from "./containers/group-list/group-list.component";
 import {GroupComponent} from "@groups/containers/group/group.component";
 import {GroupDetailComponent} from "@groups/containers/group-detail/group-detail.component";
@@ -19,7 +18,6 @@ import {NewMemberComponentDialog} from "@groups/containers/new-member-dialog/new
 import {GroupMemberComponent} from "@groups/components/group-member/group-member.component";
 
 const containers = [
-  GroupsComponent,
   GroupListComponent,
   GroupComponent,
   GroupDetailComponent,
@@ -46,7 +44,7 @@ const modules = [
 
 @NgModule({
   imports: [...modules],
-  declarations: [...components, ...containers, ...entries],
+  declarations: [...components, ...containers, ...entries]
 })
 export class GroupsModule {
 }

@@ -1,8 +1,6 @@
-import {Injectable, Renderer2, RendererFactory2} from "@angular/core";
-import {Theme, themes} from "../enums";
-import {BehaviorSubject} from "rxjs";
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validator, ValidatorFn} from "@angular/forms";
-import {VCForm, VCFormControl, VCFormControlBuilder} from "../entities";
+import {Injectable} from "@angular/core";
+import {FormBuilder} from "@angular/forms";
+import {VCForm, VCFormControlBuilder} from "../entities";
 
 @Injectable({
   providedIn: "root"

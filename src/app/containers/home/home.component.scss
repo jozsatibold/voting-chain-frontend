@@ -48,4 +48,10 @@
       }
     }
   }
+
+  &__container {
+    &> perfect-scrollbar {
+      height: calc(100vh - 3rem);
+    }
+  }
 }

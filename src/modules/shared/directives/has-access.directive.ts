@@ -8,10 +8,10 @@ import {
 } from "@angular/core";
 import { distinctUntilChanged, takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
-import { UserSandbox } from "../../global/sandboxes";
+import { UserSandbox } from "@global/sandboxes";
 
 @Directive({
-  selector: "[appHasAccess]"
+  selector: "[vcHasAccess]"
 })
 export class HasAccessDirective implements OnInit, OnDestroy {
   destroy$ = new Subject();

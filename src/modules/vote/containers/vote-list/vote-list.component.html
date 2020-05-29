@@ -1,0 +1,29 @@
+<div class="vote">
+  <div class="new-vote" routerLink="/votes/new">
+    <h3>{{"LBL_VOTES.NEW_VOTE" | translate}}</h3>
+  </div>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab [label]="'LBL_VOTES.UPCOMING' | translate">
+      <ng-template matTabContent>
+      <div class="p-15">
+        <vc-list-element *ngFor="let vote of upcomingVotes$ | async"
+                         [data]="vote"
+                         [routerLink]="[vote.id]"
+                         [size]="3"></vc-list-element>
+        <h5 class="placeholder" *ngIf="isEmpty.upcoming">{{'LBL_GROUPS.NO_UPCOMING' | translate}}</h5>
+      </div>
+      </ng-template>
+    </mat-tab>
+    <mat-tab [label]="'LBL_VOTES.PAST' | translate">
+      <ng-template matTabContent>
+        <div class="p-15">
+          <vc-list-element *ngFor="let vote of finishedVotes$ | async"
+                           [data]="vote"
+                           [size]="3"
+                           [routerLink]="[vote.id]"></vc-list-element>
+          <h5 class="placeholder" *ngIf="isEmpty.finished">{{'LBL_GROUPS.NO_PAST' | translate}}</h5>
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

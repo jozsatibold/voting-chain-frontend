@@ -81,7 +81,8 @@
     "LOGIN": "Belépés",
     "REGISTRATION": "Regisztráció",
     "GROUPS": "Csoportok",
-    "VOTES": "Szavazások"
+    "VOTES": "Szavazások",
+    "NEW_VOTE": "Új szavazás létrehozása"
   },
   "LBL_VOTES": {
     "UPCOMING": "Közelgő szavazások",
@@ -94,6 +95,7 @@
     "MEMBERS": "Csoport tagok",
     "EDIT": "Csoport szerkesztése",
     "NEW": "Új csoport",
+    "GROUP_NAME": "Csoport név",
     "CREATE_NEW": "Új csoport létrehozása",
     "REMOVE_MEMBER": "Csoporttag eltávolítása"
   }

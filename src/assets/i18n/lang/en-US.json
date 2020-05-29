@@ -85,7 +85,8 @@
   },
   "LBL_VOTES": {
     "UPCOMING": "Upcoming votes",
-    "PAST": "Expired votes"
+    "PAST": "Expired votes",
+    "NEW_VOTE": "Create new vote"
   },
   "LBL_GROUPS": {
     "NO_UPCOMING": "No upcoming votes",
@@ -94,6 +95,7 @@
     "MEMBERS": "Group members",
     "EDIT": "Edit group",
     "NEW": "New group",
+    "GROUP_NAME": "Group name",
     "CREATE_NEW": "Create new group",
     "REMOVE_MEMBER": "Remove member"
   }

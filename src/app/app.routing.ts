@@ -32,12 +32,22 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'votes'
+      },
+      {
         path: 'profile',
         component: ProfileComponent
       },
       {
         path: 'groups',
         loadChildren: () => import('../modules/groups/group.module').then(module => module.GroupsModule),
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'votes',
+        loadChildren: () => import('../modules/vote/vote.module').then(module => module.VoteModule),
         canActivate: [AuthGuard]
       },
       {path: '**', component: PageNotFoundComponent}

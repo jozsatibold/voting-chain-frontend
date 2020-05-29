@@ -75,3 +75,7 @@
   overflow: auto;
   padding: 0;
 }
+
+.mat-slider-track-fill, .mat-slider-thumb {
+  background-color: $primary-color !important;
+}

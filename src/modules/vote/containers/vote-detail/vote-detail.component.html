@@ -1,0 +1,53 @@
+<vc-loading-wrapper class="vote-detail" [condition]="vote$ | async">
+  <article *ngIf="vote$ | async as vote">
+    <div class="vote-detail__header">
+      <vc-monogram
+        size="5"
+        class="vote-detail__header__image"
+        [color]="vote.type.color"
+        [picture]="'data:image/jpeg;base64,' + vote.type.logo"></vc-monogram>
+      <div class="vote-detail__header__text">
+        <h3 class="vote-detail__header__text__title">{{vote.title}}</h3>
+        <h4 class="vote-detail__header__text__category">{{vote.type.name}}</h4>
+      </div>
+      <div class="vote-detail__header__btn">
+        <vc-button text="LBL_BTN.EDIT"
+                   [matTooltip]="'LBL_GROUPS.GROUP_NAME' | translate"
+                   [routerLink]="'/votes/' + vote.id + '/edit'"></vc-button>
+        <vc-button [text]="vote.group.name"
+                   [routerLink]="'/groups/' + vote.group.id"></vc-button>
+      </div>
+    </div>
+    <div class="vote-detail__content">
+      <p class="vote-detail__content__description">{{vote.description}}</p>
+      <div class="vote-detail__content__responses">
+        <mat-radio-group>
+          <div *ngFor="let response of vote.responses"
+               class="flex-row">
+            <mat-radio-button disabled></mat-radio-button>
+            <div class="ml-05">
+              <h4>{{response.value}}</h4>
+              <h5 *ngIf="response.description">{{response.description}}</h5>
+            </div>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div *ngIf="vote.results && vote.results.length" class="vote-detail__content__result">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+
+        <mat-slider
+          class="vote-detail__content__result__slider"
+          (valueChange)="valueChanged($event)"
+          min="0"
+          [max]="vote.results.length  - 1"></mat-slider>
+        <h3 class="vote-detail__content__result__title">{{selectedDate$ | async | date: 'short'}}</h3>
+      </div>
+    </div>
+  </article>
+</vc-loading-wrapper>

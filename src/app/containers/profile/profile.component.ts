@@ -71,8 +71,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     const value = this.passwordForm.value();
     this.userSandbox.updatePassword(value)
       .subscribe(() => {
-        this.profileForm.get('pin').control.setValue('');
-        this.profileForm.get('pinVerification').control.setValue('');
+        this.profileForm.get('newPin').control.setValue('');
+        this.profileForm.get('oldPin').control.setValue('');
         this.notificationService.showNotification('LBL_ACTION.PASSWORD_UPDATED', "success");
       });
   }

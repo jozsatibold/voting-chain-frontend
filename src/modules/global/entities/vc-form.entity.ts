@@ -31,12 +31,25 @@ export class VCForm {
   value(): any {
     return this._form ? this._form.value : null;
   }
+
+  addControl(control: VCFormControl, name: string) {
+    this._form.addControl(name, control.control);
+    this._errors.push({name, errors: control.errors});
+  }
+
+  removeControl(name: string) {
+    this._form.removeControl(name);
+    const index = this._errors.findIndex(error => error.name === name);
+    if (index >= 0) {
+      this._errors.splice(index, 1);
+    }
+  }
 }
 
 export interface VCFormControlBuilder {
   name: string;
-  value: string | number | boolean | Date
-  validators: Array<VcFormValidator>
+  value: string | number | boolean | Date;
+  validators: Array<VcFormValidator>;
 }
 
 export interface VcFormValidator {

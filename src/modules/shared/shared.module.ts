@@ -38,6 +38,8 @@ import {MatListModule} from "@angular/material/list";
 import {ListElementComponent} from "@shared/components/list-element/list-element.component";
 import {MatTabsModule} from "@angular/material/tabs";
 import {TextAreaComponent} from "@shared/components/text-area/text-area.component";
+import {ChartsModule} from "ng2-charts";
+import {MatSliderModule} from "@angular/material/slider";
 
 // pipes
 const pipes = [PicturePipe, TimeFormatPipe];
@@ -86,8 +88,13 @@ const materialComponents = [
   MatProgressSpinnerModule,
   MatRippleModule,
   MatListModule,
+  MatTabsModule,
+  MatSliderModule
+];
+
+const otherModule = [
   PerfectScrollbarModule,
-  MatTabsModule
+  ChartsModule
 ];
 
 @NgModule({
@@ -97,11 +104,12 @@ const materialComponents = [
     RouterModule,
     ReactiveFormsModule,
     TranslateModule.forChild(),
-    ...materialComponents
+    ...materialComponents,
+    ...otherModule
   ],
   providers: [DialogService],
   declarations: [...pipes, ...components, ...Directives],
-  exports: [...pipes, ...components, ...Directives, ...materialComponents],
+  exports: [...pipes, ...components, ...Directives, ...materialComponents, ...otherModule],
   entryComponents: [...entries]
 })
 export class SharedModule {
