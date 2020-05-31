@@ -40,6 +40,12 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {TextAreaComponent} from "@shared/components/text-area/text-area.component";
 import {ChartsModule} from "ng2-charts";
 import {MatSliderModule} from "@angular/material/slider";
+import {
+  NgxMatDatetimePicker,
+  NgxMatDatetimePickerModule, NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from "@angular-material-components/datetime-picker";
+import {DateTimeInputComponent} from "@shared/components/date-time-input/date-time-input.component";
 
 // pipes
 const pipes = [PicturePipe, TimeFormatPipe];
@@ -64,7 +70,8 @@ const components = [
   DateInputComponent,
   SelectInputComponent,
   ListElementComponent,
-  TextAreaComponent
+  TextAreaComponent,
+  DateTimeInputComponent
 ];
 
 // material components
@@ -94,7 +101,10 @@ const materialComponents = [
 
 const otherModule = [
   PerfectScrollbarModule,
-  ChartsModule
+  ChartsModule,
+  NgxMatDatetimePickerModule,
+  NgxMatTimepickerModule,
+  NgxMatNativeDateModule
 ];
 
 @NgModule({

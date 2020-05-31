@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import {UiService} from "@global/services";
 import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {VoteSandbox} from "../../sandboxes/vote.sandbox";
-import {filter, tap} from "rxjs/operators";
+import {filter, map, tap} from "rxjs/operators";
 import {Vote} from "@global/entities";
 
 @Component({
@@ -21,6 +21,7 @@ export class VoteDetailComponent implements OnInit, OnDestroy {
   constructor(private voteSandbox: VoteSandbox,
               private uiService: UiService) {
   }
+  isEditable$ = new BehaviorSubject<boolean>(false);
 
   barChartOptions = {
     scaleShowVerticalLines: false,
@@ -35,13 +36,19 @@ export class VoteDetailComponent implements OnInit, OnDestroy {
     this.vote$ = this.voteSandbox.getSelectedVote$.pipe(
       filter(vote => !!vote),
       tap(vote => {
-        this.voteResults = vote.results;
+        this.voteResults = vote.results && vote.results.length ? vote.results : null;
         if (this.voteResults) {
-          this.barChartData = vote.results[0].items.map(item => ({label: item.label, data: [item.value]}));
+          this.barChartData = (vote.results[0].items || []).map(item => ({label: item.label, data: [item.value]}));
           this.selectedDate$.next(new Date(this.voteResults[0].title));
         }
+        this.isEditable$.next(new Date(vote.beginning).getTime() > new Date().getTime());
         this.uiService.setTitle(vote.title);
-      }));
+      }),
+      map(vote => ({
+        ...vote,
+        end: new Date(vote.end),
+        beginning: new Date(vote.beginning)
+      })));
   }
 
   ngOnDestroy() {

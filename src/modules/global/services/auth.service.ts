@@ -29,6 +29,6 @@ export class AuthService {
   }
 
   createUser(user: User): Observable<any> {
-    return this.http.post('/api/auth/registration', user);
+    return this.http.post('/api/auth/registration', user, {responseType: "text"});
   }
 }

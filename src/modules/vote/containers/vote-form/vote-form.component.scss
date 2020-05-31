@@ -1,0 +1,57 @@
+@import "00_base/base";
+
+:host {
+  max-width: 600px;
+  display: block;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.vote-edit {
+  width: 100%;
+  display: block;
+  height: auto;
+
+  .block {
+    padding: 0;
+  }
+}
+
+.responses {
+
+  &__title {
+    text-align: center;
+  }
+
+  &__new {
+    padding: $padding-medium;
+    border-radius: $border-radius;
+    background-color: $primary-color;
+    font-weight: $font-bold;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 250ms;
+
+    &:hover {
+      box-shadow: $box-shadow--mini;
+    }
+  }
+}
+
+.text-error {
+  width: 100%;
+  text-align: center;
+}
+
+.flex-row {
+  display: flex !important;
+
+  vc-text-input {
+    width: calc(100% - 4rem);
+    margin-right: 1.5rem;
+  }
+
+  vc-button-icon {
+    margin-top: 1rem;
+  }
+}

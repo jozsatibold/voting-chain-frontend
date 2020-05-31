@@ -38,10 +38,12 @@ export class VCForm {
   }
 
   removeControl(name: string) {
-    this._form.removeControl(name);
-    const index = this._errors.findIndex(error => error.name === name);
-    if (index >= 0) {
-      this._errors.splice(index, 1);
+    if (this._form.contains(name)) {
+      this._form.removeControl(name);
+      const index = this._errors.findIndex(error => error.name === name);
+      if (index >= 0) {
+        this._errors.splice(index, 1);
+      }
     }
   }
 }

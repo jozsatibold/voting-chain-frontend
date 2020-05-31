@@ -139,7 +139,6 @@ export class AuthSandbox {
         return token;
       }),
       catchError((err: HttpErrorResponse) => {
-        console.log(err);
         if (err.error && err.status === 401) {
           this.clearAuthCredentials();
           this.router.navigate(["authorization"]);

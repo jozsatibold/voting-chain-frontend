@@ -48,4 +48,10 @@ export class VoteSandbox {
   clearSelectedVote(): void {
     this.store.dispatch(new ClearSelectedVote());
   }
+
+  create = (vote: Vote) => this.voteService.create(vote);
+
+  update = (vote: Vote) => this.voteService.update(vote);
+
+  delete = (voteId: number) => this.voteService.delete(voteId);
 }

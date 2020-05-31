@@ -35,7 +35,12 @@
       "GROUP_NAME": "Csoport név",
       "DESCRIPTION": "Leírás",
       "GROUP_TYPE": "Csoport típus",
-      "SEARCH_MEMBER": "Keress egy új tagot"
+      "SEARCH_MEMBER": "Keress egy új tagot",
+      "VOTE_RESPONSE": "Válaszlehetősegek",
+      "VOTE_TITLE": "Szavazás cím",
+      "BEGINNING": "Kezdés dátuma",
+      "END": "Befejezés dátuma",
+      "GROUP": "Csoport"
     },
     "VALUE": {
       "MALE": "Férfi",
@@ -86,7 +91,15 @@
   },
   "LBL_VOTES": {
     "UPCOMING": "Közelgő szavazások",
-    "PAST": "Lejárt szavazások"
+    "PAST": "Lejárt szavazások",
+    "BEGINNING": "Szavazás kezdési időponja",
+    "END": "Szavazás lezárási időponja",
+    "ADD_RESPONSE": "Új válaszlehetőseg hozzáadása",
+    "RESPONSES": "Válaszlehetősegek",
+    "EDIT": "Szavazás szerkesztése",
+    "NEW": "Új szavazás",
+    "INVALID_DATE_INTERVAL": "A megadott időintervallum érvénytelen",
+    "RESPONSES_REQUIRED": "Minimum két opcíót hozzá kell adnod"
   },
   "LBL_GROUPS": {
     "NO_UPCOMING": "Nincs közelgő szavazás",

@@ -11,7 +11,8 @@
         <h4 class="vote-detail__header__text__category">{{vote.type.name}}</h4>
       </div>
       <div class="vote-detail__header__btn">
-        <vc-button text="LBL_BTN.EDIT"
+        <vc-button *ngIf="isEditable$ | async"
+                   text="LBL_BTN.EDIT"
                    [matTooltip]="'LBL_GROUPS.GROUP_NAME' | translate"
                    [routerLink]="'/votes/' + vote.id + '/edit'"></vc-button>
         <vc-button [text]="vote.group.name"
@@ -19,6 +20,16 @@
       </div>
     </div>
     <div class="vote-detail__content">
+      <div class="vote-detail__content__date">
+        <div class="vote-detail__content__date__time">
+          <h4>{{ 'LBL_VOTES.BEGINNING' | translate }}</h4>
+          <h4>{{ vote.beginning | date: 'short' }}</h4>
+        </div>
+        <div class="vote-detail__content__date__time">
+          <h4>{{ 'LBL_VOTES.END' | translate }}</h4>
+          <h4>{{ vote.end | date: 'short' }}</h4>
+        </div>
+      </div>
       <p class="vote-detail__content__description">{{vote.description}}</p>
       <div class="vote-detail__content__responses">
         <mat-radio-group>

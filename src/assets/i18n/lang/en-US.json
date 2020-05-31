@@ -35,7 +35,12 @@
       "GROUP_NAME": "Group name",
       "DESCRIPTION": "Description",
       "GROUP_TYPE": "Group type",
-      "SEARCH_MEMBER": "Find a new member"
+      "SEARCH_MEMBER": "Find a new member",
+      "VOTE_TITLE": "Vote title",
+      "BEGINNING": "Beginning date",
+      "END": "End date",
+      "GROUP": "Group",
+      "VOTE_RESPONSE": "Vote response option"
     },
     "VALUE": {
       "MALE": "Male",
@@ -86,7 +91,15 @@
   "LBL_VOTES": {
     "UPCOMING": "Upcoming votes",
     "PAST": "Expired votes",
-    "NEW_VOTE": "Create new vote"
+    "NEW_VOTE": "Create new vote",
+    "BEGINNING": "Voting start date",
+    "END": "Voting end date",
+    "ADD_RESPONSE": "Add vote response option",
+    "RESPONSES": "Vote responses",
+    "EDIT": "Edit vote",
+    "NEW": "New vote",
+    "INVALID_DATE_INTERVAL": "The specified time interval is invalid",
+    "RESPONSES_REQUIRED": "You need to add min. 2 options"
   },
   "LBL_GROUPS": {
     "NO_UPCOMING": "No upcoming votes",

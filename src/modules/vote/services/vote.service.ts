@@ -31,4 +31,19 @@ export class VoteService {
     return this.http.get(`/api/votes/${voteId}`)
       .pipe(catchError(err => this.errorHandler.handleError(err)));
   }
+
+  create(vote: Vote): Observable<string> {
+    return this.http.post('/api/votes/admin', vote)
+      .pipe(catchError(err => this.errorHandler.handleError(err)));
+  }
+
+  update(vote: Vote): Observable<string> {
+    return this.http.put(`/api/votes/admin/${vote.id}`, vote)
+      .pipe(catchError(err => this.errorHandler.handleError(err)));
+  }
+
+  delete(voteId: number): Observable<string> {
+    return this.http.delete(`/api/votes/admin/${voteId}`, {responseType: 'text'})
+      .pipe(catchError(err => this.errorHandler.handleError(err)));
+  }
 }

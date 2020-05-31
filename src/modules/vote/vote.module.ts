@@ -12,11 +12,13 @@ import {CommonModule} from "@angular/common";
 import {VoteListComponent} from "./containers/vote-list/vote-list.component";
 import {VoteDetailComponent} from "@vote/containers/vote-detail/vote-detail.component";
 import {VoteComponent} from "@vote/containers/vote/vote.component";
+import {VoteFormComponent} from "@vote/containers/vote-form/vote-form.component";
 
 const containers = [
   VoteListComponent,
   VoteDetailComponent,
-  VoteComponent
+  VoteComponent,
+  VoteFormComponent
 ];
 
 const components = [

@@ -12,12 +12,13 @@ export interface Vote {
   id: number;
   title: string;
   description: string;
-  beginning: number;
-  end: number;
-  group: {
+  beginning: number | Date;
+  end: number | Date;
+  group?: {
     id: string,
     name: string
   };
+  groupId?: number;
   type: Type;
   responses: Array<VoteResponse>;
   results: Array<VoteResult>;

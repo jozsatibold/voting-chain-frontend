@@ -6,7 +6,7 @@ import {SelectOption, VCForm} from "@global/entities";
 import {FormService, NotificationService} from "@global/services";
 import {Validators} from "@angular/forms";
 import {TypeSandbox} from "@global/sandboxes";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "vc-group-form",

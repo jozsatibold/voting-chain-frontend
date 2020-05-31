@@ -1,0 +1,59 @@
+<vc-loading-wrapper class="group-edit" [condition]="!(isLoading$ | async)">
+  <article class="block" *ngIf="!(isLoading$ | async)">
+    <h3 class="block__title">{{(isNew ? 'LBL_VOTES.NEW' : 'LBL_VOTES.EDIT') | translate}}</h3>
+    <form class="block__form" [formGroup]="voteForm.form()"
+          (ngSubmit)="save()">
+      <vc-text-input
+        placeholder="LBL_INPUT.PLACEHOLDER.VOTE_TITLE"
+        [control]="voteForm.get('title')"
+        class="block__form__input"
+      ></vc-text-input>
+      <vc-text-area
+        placeholder="LBL_INPUT.PLACEHOLDER.DESCRIPTION"
+        [control]="voteForm.get('description')"
+        class="block__form__input"
+      ></vc-text-area>
+      <vc-select-input class="block__form__input"
+                       placeholder="LBL_INPUT.PLACEHOLDER.GROUP"
+                       [control]="voteForm.get('groupId')"
+                       [options]="groupOptions$ | async"></vc-select-input>
+      <vc-select-input class="block__form__input"
+                       placeholder="LBL_INPUT.PLACEHOLDER.GROUP_TYPE"
+                       [control]="voteForm.get('type')"
+                       [options]="typeOptions$ | async"></vc-select-input>
+      <vc-date-time-input class="block__form__input"
+                          [min]="minDate"
+                          [max]="maxDate"
+                          [control]="voteForm.get('beginning')"
+                          placeholder="LBL_INPUT.PLACEHOLDER.BEGINNING"></vc-date-time-input>
+      <vc-date-time-input class="block__form__input"
+                          [min]="minDate"
+                          [max]="maxDate"
+                          [control]="voteForm.get('end')"
+                          placeholder="LBL_INPUT.PLACEHOLDER.END"></vc-date-time-input>
+      <h5 *ngIf="isInvalidDate$ | async" class="text-error">{{'LBL_VOTES.INVALID_DATE_INTERVAL' | translate}}</h5>
+
+      <div *ngIf="responses.length" class="responses">
+        <h4 class="responses__title">{{'LBL_VOTES.RESPONSES' | translate}}</h4>
+        <div class="block__form__input flex-row" *ngFor="let name of responses">
+          <vc-text-input placeholder="LBL_INPUT.PLACEHOLDER.VOTE_RESPONSE"
+                         [control]="voteForm.get(name)"></vc-text-input>
+          <vc-button-icon icon="delete" (click)="removeResponse(name)" [darkBackground]="true"></vc-button-icon>
+        </div>
+      </div>
+      <div class="responses__new block__form__input"
+           (click)="addResponse()">{{'LBL_VOTES.ADD_RESPONSE' | translate}}</div>
+      <h4 *ngIf="!(isValidResponses$ | async)" class="text-error">{{'LBL_VOTES.RESPONSES_REQUIRED' | translate}}</h4>
+      <vc-button [text]="isNew ? 'LBL_BTN.SAVE': 'LBL_BTN.UPDATE'"
+                 [disabled]="!voteForm.valid() || isSubmitted ||(isInvalidDate$ | async)"
+                 inputType="submit"
+                 class="block__form__button"></vc-button>
+
+      <vc-button *ngIf="!isNew" text="LBL_BTN.DELETE"
+                 [disabled]="isSubmitted"
+                 (click)="delete()"
+                 class="block__form__button mt-3" type="danger"></vc-button>
+    </form>
+
+  </article>
+</vc-loading-wrapper>
