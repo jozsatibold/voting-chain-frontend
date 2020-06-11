@@ -9,10 +9,10 @@
 
 .new-vote {
   padding: $padding-small;
-  width: 100%;
+  width: calc(100% - 2rem);
+  margin: 0 auto $padding-big auto;
   display: block;
   background-color: $primary-color;
-  margin-bottom: 2rem;
   text-align: center;
   cursor: pointer;
   border-radius: $border-radius;

@@ -14,5 +14,8 @@
 
   .block {
     padding: 0;
+    @include respond(mobile) {
+      padding: 0 1rem;
+    }
   }
 }

@@ -92,6 +92,7 @@
   "LBL_VOTES": {
     "UPCOMING": "Közelgő szavazások",
     "PAST": "Lejárt szavazások",
+    "NEW_VOTE": "Új szavazás létrehozása",
     "BEGINNING": "Szavazás kezdési időponja",
     "END": "Szavazás lezárási időponja",
     "ADD_RESPONSE": "Új válaszlehetőseg hozzáadása",

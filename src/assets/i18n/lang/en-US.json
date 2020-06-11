@@ -34,7 +34,7 @@
       "NEW_PIN": "New pin code",
       "GROUP_NAME": "Group name",
       "DESCRIPTION": "Description",
-      "GROUP_TYPE": "Group type",
+      "GROUP_TYPE": "Type",
       "SEARCH_MEMBER": "Find a new member",
       "VOTE_TITLE": "Vote title",
       "BEGINNING": "Beginning date",
@@ -79,7 +79,7 @@
     "INVITED": "The user has been successfully invited"
   },
   "LBL_SUBTITLE": {
-    "UPDATE_PASSWORD": "Set a new password"
+    "UPDATE_PASSWORD": "Set a new pin code"
   },
   "LBL_PAGE": {
     "PROFILE": "Profile",

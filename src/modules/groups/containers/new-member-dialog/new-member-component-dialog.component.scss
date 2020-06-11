@@ -3,4 +3,7 @@ vc-text-input {
   min-width: 350px;
   max-width: 100%;
   display: block;
+  @include respond(mobile) {
+    min-width: auto;
+  }
 }
