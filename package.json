@@ -15,8 +15,8 @@
     "postinstall": "ngcc"
   },
   "engines": {
-    "node": "6.11.0",
-    "npm": "3.10.10"
+    "node": "14.1.0",
+    "npm": "6.14.5"
   },
   "private": true,
   "dependencies": {
