@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
 
+## SIDE NOTE
+
+If you want to try out the voting features, you need to configure the blockchain server. Contact the developer for more information.
+
+###Backend project
+    https://github.com/jozsatibold/voting-chain-server
+    
 ## Development
 
 ##### Local
@@ -26,3 +33,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Deployed version
+    
+    $ https://voting-chain-angular-fe.herokuapp.com/
