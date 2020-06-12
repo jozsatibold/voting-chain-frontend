@@ -7,6 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 If you want to try out the voting features, you need to configure the blockchain server. Contact the developer for more information.
 
 ###Backend project
+
     https://github.com/jozsatibold/voting-chain-server
     
 ## Development
